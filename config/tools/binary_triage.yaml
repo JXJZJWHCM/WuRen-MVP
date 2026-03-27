@@ -1,0 +1,39 @@
+name: "binary_triage"
+command: "python"
+enabled: true
+short_description: "逆向分析：对二进制样本做快速体检（hash/file/checksec/strings/objdump/binwalk）"
+description: |
+  对指定文件进行二进制快速体检：
+  - SHA256 计算
+  - file(1) 格式识别（如可用）
+  - checksec 安全编译特性（如可用）
+  - objdump 头与段信息（如可用）
+  - strings 关键字符串（节选）
+  - binwalk 签名扫描（如可用）
+  - exiftool 元信息（如可用）
+
+  适合作为逆向/恶意样本分析的第一步，帮助快速判断“从哪里下手”。
+args:
+  - "scripts/binary_triage.py"
+parameters:
+  - name: "file"
+    type: "string"
+    description: "要分析的样本文件路径"
+    required: true
+    flag: "--file"
+    format: "flag"
+  - name: "strings_min_len"
+    type: "int"
+    description: "strings 最小字符串长度"
+    required: false
+    flag: "--strings-min-len"
+    format: "flag"
+    default: 4
+  - name: "max_strings_lines"
+    type: "int"
+    description: "strings 输出节选行数"
+    required: false
+    flag: "--max-strings-lines"
+    format: "flag"
+    default: 200
+

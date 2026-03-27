@@ -1,0 +1,11 @@
+name: ocr_image
+description: OCR an image file via DeepSeek-OCR-2 (cloud) to extract text for analysis/reporting.
+command: python3
+args:
+  - src/tools/ocr_image.py
+parameters:
+  - name: image_path
+    description: Image path (e.g., data/reports/images/evidence.png)
+    required: true
+    format: positional
+    position: 0

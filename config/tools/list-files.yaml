@@ -1,0 +1,52 @@
+name: "list-files"
+command: "ls"
+enabled: true
+short_description: "列出目录文件工具"
+description: |
+  列出服务器上指定目录中的文件。
+
+  **主要功能：**
+  - 列出文件
+  - 显示详细信息
+  - 递归列出
+
+  **使用场景：**
+  - 目录浏览
+  - 文件查找
+  - 系统检查
+parameters:
+  - name: "directory"
+    type: "string"
+    description: "要列出的目录（相对于服务器基础目录）"
+    required: false
+    default: "."
+    position: 0
+    format: "positional"
+  - name: "long_format"
+    type: "bool"
+    description: "显示详细信息（长格式）"
+    required: false
+    flag: "-l"
+    format: "flag"
+    default: false
+  - name: "recursive"
+    type: "bool"
+    description: "递归列出"
+    required: false
+    flag: "-R"
+    format: "flag"
+    default: false
+  - name: "additional_args"
+    type: "string"
+    description: |
+      额外的list-files参数。用于传递未在参数列表中定义的list-files选项。
+
+      **示例值：**
+      - 根据工具特性添加常用参数示例
+
+      **注意事项：**
+      - 多个参数用空格分隔
+      - 确保参数格式正确，避免命令注入
+      - 此参数会直接追加到命令末尾
+    required: false
+    format: "positional"

@@ -1,0 +1,24 @@
+name: searchsploit
+description: Search the Exploit-DB archive for exploits and shellcodes.
+parameters:
+  - name: query
+    description: The search terms (e.g., "apache 2.4", "CVE-2021-44228", "linux kernel").
+    required: true
+    position: 0
+    format: "positional"
+  - name: title
+    description: Search just the title (more accurate).
+    required: false
+    flag: "-t"
+    format: "flag"
+  - name: id
+    description: Display the exploit ID.
+    required: false
+    flag: "--id"
+    format: "flag"
+  - name: overflow
+    description: Exploit Title Overflow (allowed to overflow).
+    required: false
+    flag: "--overflow"
+    format: "flag"
+command: searchsploit

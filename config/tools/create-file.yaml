@@ -1,0 +1,78 @@
+name: "create-file"
+command: "python3"
+args:
+  - "-c"
+  - |
+    import base64
+    import sys
+    from pathlib import Path
+
+    if len(sys.argv) < 3:
+        sys.stderr.write("Usage: create-file <filename> <content> [binary]\n")
+        sys.exit(1)
+
+    filename = sys.argv[1]
+    content = sys.argv[2]
+    binary_arg = sys.argv[3].lower() if len(sys.argv) > 3 else "false"
+    binary = binary_arg in ("1", "true", "yes", "on")
+
+    path = Path(filename)
+    if not path.is_absolute():
+        path = Path.cwd() / path
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    if binary:
+        data = base64.b64decode(content)
+        path.write_bytes(data)
+    else:
+        path.write_text(content, encoding="utf-8")
+
+    print(f"文件已创建: {path}")
+enabled: true
+short_description: "创建文件工具"
+description: |
+  在服务器上创建指定内容的文件。
+
+  **主要功能：**
+  - 创建文件
+  - 写入内容
+  - 支持二进制文件
+
+  **使用场景：**
+  - 文件创建
+  - 脚本生成
+  - 数据保存
+parameters:
+  - name: "filename"
+    type: "string"
+    description: "要创建的文件名"
+    required: true
+    position: 0
+    format: "positional"
+  - name: "content"
+    type: "string"
+    description: "文件内容"
+    required: true
+    position: 1
+    format: "positional"
+  - name: "binary"
+    type: "bool"
+    description: "内容是否为Base64编码的二进制"
+    required: false
+    position: 2
+    format: "positional"
+    default: false
+  - name: "additional_args"
+    type: "string"
+    description: |
+      额外的create-file参数。用于传递未在参数列表中定义的create-file选项。
+
+      **示例值：**
+      - 根据工具特性添加常用参数示例
+
+      **注意事项：**
+      - 多个参数用空格分隔
+      - 确保参数格式正确，避免命令注入
+      - 此参数会直接追加到命令末尾
+    required: false
+    format: "positional"

@@ -1,0 +1,16 @@
+sources:
+  - name: aptnotes
+    url: https://github.com/kbandla/APTnotes.git
+    target_dir: data/external/defense/aptnotes
+  - name: sigma
+    url: https://github.com/SigmaHQ/sigma.git
+    target_dir: data/external/defense/sigma
+  - name: mitre-attack-stix
+    url: https://github.com/mitre/attack-stix-data.git
+    target_dir: data/external/defense/attack-stix-data
+  - name: threat-hunter-playbook
+    url: https://github.com/OTRF/ThreatHunter-Playbook.git
+    target_dir: data/external/defense/ThreatHunter-Playbook
+  - name: apt-campaign-collections
+    url: https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections.git
+    target_dir: data/external/defense/APT_CyberCriminal_Campagin_Collections

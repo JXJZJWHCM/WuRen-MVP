@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+pydantic
+pyyaml
+openai
+python-dotenv
+httpx>=0.27.0
+sse-starlette
+jinja2
+python-multipart
+duckduckgo-search
+beautifulsoup4
+chromadb
+sentence-transformers
+networkx
+markdown
+psutil

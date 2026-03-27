@@ -1,0 +1,76 @@
+name: "fcrackzip"
+command: "fcrackzip"
+enabled: true
+short_description: "ZIP 文件密码破解工具，支持暴力破解和字典攻击"
+description: |
+  fcrackzip 是一个用于破解受密码保护的 ZIP 文件密码的工具。
+
+  **主要功能：**
+  - 暴力破解
+  - 字典攻击
+  - 指定字符集
+  - 指定密码长度范围
+  - 多线程支持
+
+  **使用场景：**
+  - CTF 竞赛
+  - ZIP 文件密码恢复
+  - 安全测试
+  - 数字取证
+
+  **注意事项：**
+  - 破解时间取决于密码复杂度
+  - 建议使用字典文件提高效率
+  - 仅用于授权的安全测试
+parameters:
+  - name: "file"
+    type: "string"
+    description: "要破解的 ZIP 文件路径"
+    required: true
+    position: 0
+    format: "positional"
+  - name: "dictionary_mode"
+    type: "bool"
+    description: "启用字典攻击模式（等同于 -D）"
+    required: false
+    flag: "-D"
+    format: "flag"
+    default: false
+  - name: "dictionary"
+    type: "string"
+    description: "字典文件路径（与 -D 配合使用）"
+    required: false
+    flag: "-p"
+    format: "flag"
+  - name: "bruteforce"
+    type: "bool"
+    description: "使用暴力破解模式"
+    required: false
+    flag: "-b"
+    format: "flag"
+  - name: "charset"
+    type: "string"
+    description: "字符集，例如 'aA1' 表示小写字母、大写字母和数字"
+    required: false
+    flag: "-c"
+    format: "flag"
+  - name: "length_range"
+    type: "string"
+    description: "密码长度范围，格式为min-max（例如 4-8）"
+    required: false
+    flag: "-l"
+    format: "flag"
+  - name: "additional_args"
+    type: "string"
+    description: |
+      额外的fcrackzip参数。用于传递未在参数列表中定义的fcrackzip选项。
+
+      **示例值：**
+      - 根据工具特性添加常用参数示例
+
+      **注意事项：**
+      - 多个参数用空格分隔
+      - 确保参数格式正确，避免命令注入
+      - 此参数会直接追加到命令末尾
+    required: false
+    format: "positional"

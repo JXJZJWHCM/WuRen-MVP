@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雾刃渗透测试系统1.0 - 自动化渗透测试平台</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Custom overrides for 雾刃渗透测试系统1.0 specific logic */
+        /* Chat messages styling to match the new structure */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 0;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .chat-message {
+            display: flex;
+            gap: 12px;
+            max-width: 85%;
+        }
+
+        .chat-message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .chat-message.ai {
+            align-self: flex-start;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .chat-message.user .message-avatar {
+            background-color: var(--accent-color);
+        }
+
+        .chat-message.ai .message-avatar {
+            background-color: #10a37f; /* OpenAI Green-ish */
+        }
+        
+        .chat-message.error .message-avatar {
+            background-color: var(--error-color);
+        }
+
+        .message-bubble {
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+            box-shadow: var(--shadow-sm);
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .chat-message.user .message-bubble {
+            background-color: rgba(0, 102, 255, 0.1);
+            border-color: rgba(0, 102, 255, 0.2);
+            border-top-right-radius: 2px;
+        }
+
+        .chat-message.ai .message-bubble {
+            background-color: var(--bg-primary);
+            border-top-left-radius: 2px;
+        }
+
+        .input-area {
+            padding: 20px;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 8px 12px;
+            transition: all 0.2s;
+        }
+
+        .input-wrapper:focus-within {
+            border-color: var(--accent-color);
+            background: var(--bg-primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        }
+
+        #userInput {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 0.9375rem;
+            padding: 8px 0;
+            outline: none;
+            color: var(--text-primary);
+        }
+
+        .welcome-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 40px;
+        }
+
+        .welcome-icon {
+            font-size: 4rem;
+            margin-bottom: 24px;
+            color: rgba(0, 102, 255, 0.2);
+        }
+
+        .welcome-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+            max-width: 600px;
+        }
+
+        .welcome-feature {
+            background: var(--bg-primary);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal styling fixes */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background-color: var(--bg-primary);
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 16px;
+            width: 80%;
+            max-width: 900px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-lg);
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+        
+        .modal-body h1, .modal-body h2, .modal-body h3 {
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .modal-body h1 { font-size: 1.8rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5em; }
+        .modal-body h2 { font-size: 1.5rem; }
+        .modal-body h3 { font-size: 1.25rem; }
+        
+        .modal-body p { margin-bottom: 1em; }
+        
+        .modal-body ul, .modal-body ol {
+            margin-bottom: 1em;
+            padding-left: 1.5em;
+        }
+        
+        .modal-body li { margin-bottom: 0.5em; }
+        
+        .modal-body pre {
+            background-color: var(--bg-secondary);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+            border: 1px solid var(--border-color);
+        }
+        
+        .modal-body code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            background-color: rgba(0, 102, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent-color);
+        }
+        
+        .modal-body pre code {
+            background-color: transparent;
+            padding: 0;
+            color: inherit;
+        }
+        
+        .modal-body blockquote {
+            border-left: 4px solid var(--accent-color);
+            margin: 0 0 1.5em 0;
+            padding: 0.5em 1em;
+            background-color: rgba(0, 102, 255, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="main-sidebar">
+                <div class="main-sidebar-header">
+                    <div class="logo">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--accent-color); font-size: 1.5rem;"></i>
+                        <span>雾刃渗透测试系统1.0</span>
+                    </div>
+                    <div id="appVersionBadge" style="margin-top: 6px; font-size: 0.8125rem; color: var(--text-secondary);">v1.2.0</div>
+                </div>
+                
+                <nav class="main-sidebar-nav">
+                    <div class="nav-item active" data-target="page-chat">
+                        <div class="nav-item-content">
+                            <i class="fa-regular fa-comments"></i>
+                            <span>控制台</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-projects">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-folder-tree"></i>
+                            <span>项目管理</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-attackchain">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-diagram-project"></i>
+                            <span>攻击链</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-recon">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <span>信息收集</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-vulns">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>漏洞管理</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-persistence">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-thumbtack"></i>
+                            <span>权限维持</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-loot">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <span>文件管理</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-lateralmove">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <span>内网横向</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-tasks">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span>扫描报告</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-tools">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-toolbox"></i>
+                            <span>工具箱</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-skills">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-brain"></i>
+                            <span>Skills</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-knowledge">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-book"></i>
+                            <span>知识库</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-vulndb">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-bug"></i>
+                            <span>漏洞库</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-auditlog">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                            <span>日志管理</span>
+                        </div>
+                    </div>
+                    <div class="nav-item" data-target="page-settings">
+                        <div class="nav-item-content">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span>系统设置</span>
+                        </div>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="content-area">
+                <!-- Page: Chat/Console -->
+                <div id="page-chat" class="page active">
+                    <div class="page-header" style="display: flex !important;">
+                        <div class="header-title">
+                            <h2>渗透测试控制台</h2>
+                            <span class="header-subtitle">由 DeepSeek-R1 驱动</span>
+                        </div>
+                        <div class="header-center">
+                            <div id="perfMonitor" class="perf-monitor" title="系统性能监控">
+                                <div class="perf-row">
+                                    <span class="perf-label">CPU</span>
+                                    <span class="perf-value" id="perfCpu">--%</span>
+                                </div>
+                                <div class="perf-row">
+                                    <span class="perf-label">内存</span>
+                                    <span class="perf-value" id="perfMem">--%</span>
+                                </div>
+                                <div class="perf-row">
+                                    <span class="perf-label">硬盘</span>
+                                    <span class="perf-value" id="perfDisk">--%</span>
+                                </div>
+                                <div class="perf-io" id="perfDiskIo"></div>
+                            </div>
+                        </div>
+                        <div class="header-actions">
+                            <div class="status-badge status-success" id="healthBadge">
+                                <i class="fa-solid fa-circle-check"></i> 系统就绪
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-container">
+                        <div id="chat-messages" class="chat-messages">
+                            <div class="welcome-screen">
+                                <div class="welcome-icon">
+                                    <i class="fa-solid fa-user-secret"></i>
+                                </div>
+                                <h3>雾刃渗透测试系统1.0 智能渗透系统</h3>
+                                <p>全自动化渗透测试流程，集成了信息收集、漏洞扫描、漏洞利用与报告生成。</p>
+                                <div class="welcome-features">
+                                    <div class="welcome-feature">
+                                        <i class="fa-solid fa-magnifying-glass" style="color: var(--accent-color);"></i>
+                                        <span>自动化信息收集</span>
+                                    </div>
+                                    <div class="welcome-feature">
+                                        <i class="fa-solid fa-bug" style="color: var(--error-color);"></i>
+                                        <span>智能漏洞扫描</span>
+                                    </div>
+                                    <div class="welcome-feature">
+                                        <i class="fa-solid fa-terminal" style="color: var(--warning-color);"></i>
+                                        <span>Metasploit 联动</span>
+                                    </div>
+                                    <div class="welcome-feature">
+                                        <i class="fa-solid fa-file-contract" style="color: var(--success-color);"></i>
+                                        <span>专业报告生成</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="input-area">
+                            <div class="input-wrapper">
+                                <select id="chatTaskSelect" style="max-width: 240px; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 12px; background: var(--bg-primary); color: var(--text-primary);">
+                                    <option value="">选择项目/任务...</option>
+                                </select>
+                                <input type="text" id="userInput" placeholder="请输入目标 IP 或域名 (例如: 192.168.1.1)..." autocomplete="off">
+                                <button id="startBtn" class="btn-primary">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                                <button id="stopBtn" class="btn-danger" style="display: none;">
+                                    <i class="fa-solid fa-stop"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Project Management -->
+                <div id="page-projects" class="page">
+                    <div class="page-header">
+                        <h2>项目管理</h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display:flex; gap:10px; align-items:center;">
+                            <button class="btn-secondary" id="refreshProjectsBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                            <label style="display:flex; align-items:center; gap:6px; color: var(--text-secondary); font-size: 0.9rem;">
+                                <input type="checkbox" id="projectsAutoRefresh" checked>
+                                实时更新
+                            </label>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="projects-layout">
+                            <div class="projects-left">
+                                <div class="projects-create">
+                                    <div class="projects-create-title">创建任务</div>
+                                    <div class="projects-create-row">
+                                        <input id="projectTargetInput" type="text" placeholder="目标 IP / 域名 / 项目名 (例如: 192.168.1.1)" autocomplete="off">
+                                        <button class="btn-secondary" id="createProjectBtn">
+                                            <i class="fa-solid fa-plus"></i> 创建
+                                        </button>
+                                    </div>
+                                    <textarea id="projectGoalInput" placeholder="任务目标（可选，例如：对目标进行资产测绘与安全验证；默认可留空）"></textarea>
+                                </div>
+                                <div class="projects-list-title">任务列表</div>
+                                <div class="projects-list" id="projectsList"></div>
+                            </div>
+                            <div class="projects-right">
+                                <div class="projects-detail-title">运行日志</div>
+                                <div class="projects-detail-meta" id="projectsDetailMeta">请选择一个任务以查看日志。</div>
+                                <pre class="projects-detail" id="projectsDetailLog"></pre>
+                                <div class="projects-detail-actions">
+                                    <button class="btn-secondary" id="projectsStartBtn"><i class="fa-solid fa-play"></i> 开始</button>
+                                    <button class="btn-secondary" id="projectsPauseBtn"><i class="fa-solid fa-pause"></i> 暂停</button>
+                                    <button class="btn-secondary" id="projectsResumeBtn"><i class="fa-solid fa-play"></i> 继续</button>
+                                    <button class="btn-danger" id="projectsStopBtn"><i class="fa-solid fa-stop"></i> 停止</button>
+                                    <button class="btn-danger" id="projectsDeleteBtn"><i class="fa-solid fa-trash"></i> 删除</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Attack Chain -->
+                <div id="page-attackchain" class="page">
+                    <div class="page-header">
+                        <h2>攻击链</h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display:flex; gap:10px; align-items:center;">
+                            <select id="attackChainTaskSelect" style="padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); min-width: 320px;">
+                                <option value="">选择项目/任务...</option>
+                            </select>
+                            <button class="btn-secondary" id="attackChainRefreshBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                            <label style="display:flex; align-items:center; gap:6px; color: var(--text-secondary); font-size: 0.9rem;">
+                                <input type="checkbox" id="attackChainAutoRefresh" checked>
+                                实时更新
+                            </label>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="attack-chain-board">
+                            <div class="attack-chain-graph-card">
+                                <div class="attack-chain-graph" id="attackChainGraph">
+                                    <svg class="attack-chain-graph-svg" id="attackChainGraphSvg"></svg>
+                                    <div class="attack-chain-graph-empty" id="attackChainGraphEmpty">请选择一个项目/任务以查看攻击链。</div>
+                                </div>
+                            </div>
+                            <div class="attack-chain-detail-card">
+                                <div class="attack-chain-detail-head">
+                                    <div class="attack-chain-detail-head-left">
+                                        <div class="attack-chain-detail-heading">操作详情</div>
+                                        <div class="attack-chain-detail-meta" id="attackChainDetailMeta">—</div>
+                                    </div>
+                                </div>
+                                <div class="attack-chain-detail-body">
+                                    <div class="attack-chain-detail-row">
+                                        <div class="attack-chain-detail-label">阶段</div>
+                                        <div class="attack-chain-detail-value" id="attackChainDetailStage">—</div>
+                                    </div>
+                                    <div class="attack-chain-detail-row">
+                                        <div class="attack-chain-detail-label">类型</div>
+                                        <div class="attack-chain-detail-value" id="attackChainDetailType">—</div>
+                                    </div>
+                                    <div class="attack-chain-detail-row">
+                                        <div class="attack-chain-detail-label">描述</div>
+                                        <div class="attack-chain-detail-value" id="attackChainDetailDesc">—</div>
+                                    </div>
+                                    <div class="attack-chain-detail-row">
+                                        <div class="attack-chain-detail-label">使用工具</div>
+                                        <div class="attack-chain-tool-tags" id="attackChainDetailTools"></div>
+                                    </div>
+                                    <pre class="attack-chain-detail-raw" id="attackChainDetailRaw">将鼠标移动到流程节点以查看详情。</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Recon -->
+                <div id="page-recon" class="page">
+                    <div class="page-header">
+                        <h2>信息收集</h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display:flex; gap:10px; align-items:center;">
+                            <select id="reconTaskSelect" style="padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); min-width: 320px;">
+                                <option value="">选择项目/任务...</option>
+                            </select>
+                            <button class="btn-secondary" id="reconRefreshBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                            <label style="display:flex; align-items:center; gap:6px; color: var(--text-secondary); font-size: 0.9rem;">
+                                <input type="checkbox" id="reconAutoRefresh" checked>
+                                实时更新
+                            </label>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="recon-board">
+                            <div class="recon-summary-card">
+                                <div class="recon-summary" id="reconSummary">请选择一个项目/任务以查看信息收集过程。</div>
+                                <div class="recon-tool-tags" id="reconToolTags"></div>
+                            </div>
+                            <div class="recon-layout">
+                                <div class="recon-list" id="reconStepList"></div>
+                                <div class="recon-detail">
+                                    <div class="recon-detail-title">明细</div>
+                                    <div class="recon-detail-meta" id="reconDetailMeta">—</div>
+                                    <div class="recon-detail-row">
+                                        <div class="recon-detail-label">工具</div>
+                                        <div class="recon-detail-value" id="reconDetailTool">—</div>
+                                    </div>
+                                    <div class="recon-detail-row">
+                                        <div class="recon-detail-label">命令/参数</div>
+                                        <div class="recon-detail-value" id="reconDetailCmd">—</div>
+                                    </div>
+                                    <pre class="recon-detail-raw" id="reconDetailRaw">选择一条步骤以查看完整输出。</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Vulnerability Management -->
+                <div id="page-vulns" class="page">
+                    <div class="page-header">
+                        <h2>漏洞管理</h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display:flex; gap:10px; align-items:center;">
+                            <select id="vulnTaskSelect" style="padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); min-width: 260px;">
+                                <option value="">请选择项目/任务...</option>
+                            </select>
+                            <input id="vulnSearchInput" type="text" placeholder="搜索漏洞标题/影响点/证据" style="padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); min-width: 220px;">
+                            <select id="vulnSeverityFilter" style="padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary);">
+                                <option value="">全部等级</option>
+                                <option value="严重">严重</option>
+                                <option value="高危">高危</option>
+                                <option value="中危">中危</option>
+                                <option value="低危">低危</option>
+                            </select>
+                            <select id="vulnStatusFilter" style="padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary);">
+                                <option value="">全部状态</option>
+                                <option value="open">未关闭</option>
+                                <option value="fixed">已修复</option>
+                                <option value="accepted">已接受风险</option>
+                                <option value="false_positive">误报</option>
+                            </select>
+                            <button class="btn-secondary" id="exportVulnsBtn">
+                                <i class="fa-solid fa-download"></i> 导出
+                            </button>
+                            <button class="btn-secondary" id="refreshVulnsBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div id="vulnSummaryBar" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom: 12px; color: var(--text-secondary); font-size: 0.9rem;"></div>
+                        <div class="tasks-list" id="vulnList">
+                            <!-- Vulns injected via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Persistence -->
+                <div id="page-persistence" class="page">
+                    <div class="page-header">
+                        <h2>权限维持</h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display:flex; gap:10px; align-items:center;">
+                            <select id="persistTaskSelect" style="padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); min-width: 320px;">
+                                <option value="">选择项目/任务...</option>
+                            </select>
+                            <button class="btn-secondary" id="persistRefreshBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                            <label style="display:flex; align-items:center; gap:6px; color: var(--text-secondary); font-size: 0.9rem;">
+                                <input type="checkbox" id="persistAutoRefresh" checked>
+                                实时更新
+                            </label>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="persist-board">
+                            <div class="persist-summary-card">
+                                <div class="persist-summary" id="persistSummary">请选择一个项目/任务以查看权限维持过程。</div>
+                                <div class="persist-badges">
+                                    <div class="persist-badge" id="persistInfoBadge">权限/信息：—</div>
+                                    <div class="persist-badge" id="persistArtifactsBadge">工具/文件：—</div>
+                                </div>
+                                <div class="persist-tool-tags" id="persistToolTags"></div>
+                            </div>
+                            <div class="persist-layout">
+                                <div class="persist-list" id="persistStepList"></div>
+                                <div class="persist-detail">
+                                    <div class="persist-detail-title">明细</div>
+                                    <div class="persist-detail-meta" id="persistDetailMeta">—</div>
+                                    <div class="persist-detail-row">
+                                        <div class="persist-detail-label">工具</div>
+                                        <div class="persist-detail-value" id="persistDetailTool">—</div>
+                                    </div>
+                                    <div class="persist-detail-row">
+                                        <div class="persist-detail-label">命令/参数</div>
+                                        <div class="persist-detail-value" id="persistDetailCmd">—</div>
+                                    </div>
+                                    <div class="persist-detail-row">
+                                        <div class="persist-detail-label">文件/产物</div>
+                                        <div class="persist-detail-value" id="persistDetailArtifacts">—</div>
+                                    </div>
+                                    <div class="persist-info-title">权限与信息汇总</div>
+                                    <pre class="persist-info-box" id="persistInfoBox">—</pre>
+                                    <pre class="persist-detail-raw" id="persistDetailRaw">选择一条步骤以查看完整输出。</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: File Vault -->
+                <div id="page-loot" class="page">
+                    <div class="page-header">
+                        <h2>文件管理</h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display:flex; gap:10px; align-items:center;">
+                            <select id="lootTaskSelect" style="padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); min-width: 320px;">
+                                <option value="">选择项目/任务...</option>
+                            </select>
+                            <button class="btn-secondary" id="lootRefreshBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                            <label style="display:flex; align-items:center; gap:6px; color: var(--text-secondary); font-size: 0.9rem;">
+                                <input type="checkbox" id="lootAutoRefresh" checked>
+                                自动刷新
+                            </label>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="loot-board">
+                            <div class="loot-toolbar">
+                                <div class="loot-path" id="lootPathBar">/</div>
+                                <div class="loot-actions">
+                                    <label class="loot-overwrite">
+                                        <input type="checkbox" id="lootOverwriteToggle">
+                                        覆盖同名
+                                    </label>
+                                    <input type="file" id="lootUploadInput" style="display:none;" multiple>
+                                    <button class="btn-secondary" id="lootUpBtn"><i class="fa-solid fa-level-up-alt"></i> 上级</button>
+                                    <button class="btn-secondary" id="lootUploadBtn"><i class="fa-solid fa-upload"></i> 上传</button>
+                                    <button class="btn-secondary" id="lootMkdirBtn"><i class="fa-solid fa-folder-plus"></i> 新建文件夹</button>
+                                    <button class="btn-secondary" id="lootDownloadBtn"><i class="fa-solid fa-download"></i> 下载</button>
+                                    <button class="btn-danger" id="lootDeleteBtn"><i class="fa-solid fa-trash"></i> 删除</button>
+                                </div>
+                            </div>
+                            <div class="loot-remote">
+                                <div class="loot-remote-title">从会话读取远程文件（MSF）</div>
+                                <div class="loot-remote-row">
+                                    <select id="lootRemoteSessionSelect" class="audit-input" style="min-width: 200px;">
+                                        <option value="">选择会话...</option>
+                                    </select>
+                                    <input id="lootRemoteSessionInput" class="audit-input" type="text" placeholder="或手动输入会话 ID（如 1）" style="min-width: 200px;">
+                                    <input id="lootRemotePathInput" class="audit-input" type="text" placeholder="远程文件路径（如 /etc/passwd 或 C:\\Windows\\win.ini）" style="flex: 1; min-width: 320px;">
+                                    <button class="btn-secondary" id="lootRemoteReadBtn"><i class="fa-solid fa-eye"></i> 读取</button>
+                                    <button class="btn-secondary" id="lootRemoteSaveBtn"><i class="fa-solid fa-floppy-disk"></i> 保存到文件库</button>
+                                </div>
+                                <div class="loot-remote-hint" id="lootRemoteHint">提示：会话列表来自该任务的历史事件；若未自动识别，可手动输入 session_id。</div>
+                            </div>
+                            <div class="loot-layout">
+                                <div class="loot-list" id="lootList"></div>
+                                <div class="loot-detail">
+                                    <div class="loot-detail-title">预览</div>
+                                    <div class="loot-detail-meta" id="lootDetailMeta">—</div>
+                                    <div class="loot-detail-row">
+                                        <div class="loot-detail-label">路径</div>
+                                        <div class="loot-detail-value" id="lootDetailPath">—</div>
+                                    </div>
+                                    <div class="loot-detail-row">
+                                        <div class="loot-detail-label">大小</div>
+                                        <div class="loot-detail-value" id="lootDetailSize">—</div>
+                                    </div>
+                                    <div class="loot-detail-row">
+                                        <div class="loot-detail-label">修改时间</div>
+                                        <div class="loot-detail-value" id="lootDetailMtime">—</div>
+                                    </div>
+                                    <pre class="loot-detail-preview" id="lootDetailPreview">选择一个文件以预览内容。</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Lateral Movement -->
+                <div id="page-lateralmove" class="page">
+                    <div class="page-header">
+                        <h2>内网横向</h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display:flex; gap:10px; align-items:center;">
+                            <select id="lateralTaskSelect" style="padding: 8px 10px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); min-width: 320px;">
+                                <option value="">选择项目/任务...</option>
+                            </select>
+                            <button class="btn-secondary" id="lateralRefreshBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                            <label style="display:flex; align-items:center; gap:6px; color: var(--text-secondary); font-size: 0.9rem;">
+                                <input type="checkbox" id="lateralAutoRefresh" checked>
+                                实时更新
+                            </label>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="lateral-board">
+                            <div class="lateral-summary-card">
+                                <div class="lateral-summary" id="lateralSummary">请选择一个项目/任务以查看内网横向过程。</div>
+                                <div class="lateral-badges">
+                                    <div class="lateral-badge" id="lateralPrivBadge">权限/身份：—</div>
+                                    <div class="lateral-badge" id="lateralCredBadge">凭据：—</div>
+                                    <div class="lateral-badge" id="lateralHostBadge">主机/网段：—</div>
+                                    <div class="lateral-badge" id="lateralArtifactsBadge">工具/文件：—</div>
+                                </div>
+                                <div class="lateral-tool-tags" id="lateralToolTags"></div>
+                            </div>
+                            <div class="lateral-layout">
+                                <div class="lateral-list" id="lateralStepList"></div>
+                                <div class="lateral-detail">
+                                    <div class="lateral-detail-title">明细</div>
+                                    <div class="lateral-detail-meta" id="lateralDetailMeta">—</div>
+                                    <div class="lateral-detail-row">
+                                        <div class="lateral-detail-label">工具</div>
+                                        <div class="lateral-detail-value" id="lateralDetailTool">—</div>
+                                    </div>
+                                    <div class="lateral-detail-row">
+                                        <div class="lateral-detail-label">命令/参数</div>
+                                        <div class="lateral-detail-value" id="lateralDetailCmd">—</div>
+                                    </div>
+                                    <div class="lateral-detail-row">
+                                        <div class="lateral-detail-label">文件/产物</div>
+                                        <div class="lateral-detail-value" id="lateralDetailArtifacts">—</div>
+                                    </div>
+                                    <div class="lateral-info-title">完整权限与信息</div>
+                                    <pre class="lateral-info-box" id="lateralInfoBox">—</pre>
+                                    <pre class="lateral-detail-raw" id="lateralDetailRaw">选择一条步骤以查看完整输出。</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Reports -->
+                <div id="page-tasks" class="page">
+                    <div class="page-header">
+                        <h2>扫描报告</h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions">
+                            <button class="btn-secondary" id="refreshReportsBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="tasks-list" id="reportList">
+                            <!-- Reports injected via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Tools -->
+                <div id="page-tools" class="page">
+                    <div class="page-header">
+                        <h2>工具管理 <span class="count-badge" id="toolsCountBadge">0</span></h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions">
+                            <button class="btn-primary" id="addToolBtn">
+                                <i class="fa-solid fa-plus"></i> 添加工具
+                            </button>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="roles-grid" id="toolsList">
+                            <!-- Tools injected via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Skills -->
+                <div id="page-skills" class="page">
+                    <div class="page-header">
+                        <h2>Skills 管理 <span class="count-badge" id="skillsCountBadge">0</span></h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display: flex; gap: 8px;">
+                            <button class="btn-primary" id="addSkillBtn">
+                                <i class="fa-solid fa-plus"></i> 添加 Skill
+                            </button>
+                            <button class="btn-secondary" id="refreshSkillsBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="tasks-list" id="skillsList">
+                            <div class="empty-state">
+                                <i class="fa-regular fa-folder-open"></i>
+                                <p>暂无 Skill 文件</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Knowledge Base -->
+                <div id="page-knowledge" class="page">
+                    <div class="page-header">
+                        <h2>知识库管理 <span class="count-badge" id="knowledgeCountBadge">0</span></h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display: flex; gap: 8px;">
+                            <button class="btn-primary" id="addKnowledgeBtn">
+                                <i class="fa-solid fa-plus"></i> 添加知识
+                            </button>
+                            <button class="btn-secondary" id="refreshKnowledgeBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="tasks-list" id="knowledgeList">
+                            <div class="empty-state">
+                                <i class="fa-regular fa-folder-open"></i>
+                                <p>暂无知识库文件</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Vulnerability DB -->
+                <div id="page-vulndb" class="page">
+                    <div class="page-header">
+                        <h2>漏洞库 (Exploit-DB) <span class="count-badge" id="vulnDbTotalCountBadge">--</span></h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display: flex; gap: 8px;">
+                             <input type="text" id="vulndbSearchInput" placeholder="搜索 exploit (如: CVE-2021-44228)..." style="padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border-color); width: 250px;">
+                             <button class="btn-primary" id="searchVulnBtn">
+                                <i class="fa-solid fa-search"></i>
+                             </button>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="tasks-list" id="vulndbList">
+                             <div class="empty-state">
+                                <i class="fa-solid fa-shield-cat"></i>
+                                <p>请输入关键词搜索 Exploit-DB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Audit Log -->
+                <div id="page-auditlog" class="page">
+                    <div class="page-header">
+                        <h2>日志管理</h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions" style="display:flex; gap:10px; align-items:center;">
+                            <button class="btn-secondary" id="refreshAuditBtn">
+                                <i class="fa-solid fa-rotate-right"></i> 刷新
+                            </button>
+                            <button class="btn-danger" id="clearAuditBtn">
+                                <i class="fa-solid fa-trash"></i> 清空日志
+                            </button>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="audit-toolbar">
+                            <div class="audit-toolbar-left">
+                                <div class="audit-stat" id="auditStatsText">—</div>
+                            </div>
+                            <div class="audit-toolbar-right">
+                                <input type="text" id="auditQueryInput" placeholder="搜索（用户操作/系统操作/对象/详情）" class="audit-input">
+                                <select id="auditActionPreset" class="audit-input">
+                                    <option value="ops" selected>全部操作（推荐）</option>
+                                    <option value="ui">用户操作</option>
+                                    <option value="platform">系统操作</option>
+                                </select>
+                                <details class="audit-advanced">
+                                    <summary class="audit-advanced-summary">高级</summary>
+                                    <div class="audit-advanced-body">
+                                        <select id="auditMethodSelect" class="audit-input">
+                                            <option value="">全部方法</option>
+                                            <option value="GET">GET</option>
+                                            <option value="POST">POST</option>
+                                            <option value="PUT">PUT</option>
+                                            <option value="DELETE">DELETE</option>
+                                        </select>
+                                        <select id="auditAdvancedKind" class="audit-input">
+                                            <option value="">（可选）包含接口请求</option>
+                                            <option value="request">接口请求</option>
+                                        </select>
+                                        <input type="text" id="auditPathInput" placeholder="路径包含（如 /api/tasks）" class="audit-input">
+                                        <input type="text" id="auditActionInput" placeholder="动作包含（如 update_config）" class="audit-input">
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                        <div class="audit-layout">
+                            <div class="audit-list" id="auditLogList"></div>
+                            <div class="audit-detail">
+                                <div class="audit-detail-title">详情</div>
+                                <div class="audit-detail-meta" id="auditDetailMeta">—</div>
+                                <pre class="audit-detail-raw" id="auditDetailRaw">选择一条日志查看详情。</pre>
+                            </div>
+                        </div>
+                        <div class="audit-pagination">
+                            <button class="btn-secondary" id="auditPrevBtn"><i class="fa-solid fa-chevron-left"></i> 上一页</button>
+                            <div class="audit-page-hint" id="auditPageHint">—</div>
+                            <button class="btn-secondary" id="auditNextBtn">下一页 <i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Settings -->
+                <div id="page-settings" class="page">
+                    <div class="page-header">
+                        <h2>系统设置</h2>
+                        <div class="header-center"></div>
+                        <div class="page-header-actions">
+                            <button class="btn-primary" id="saveSettingsBtn">
+                                <i class="fa-solid fa-save"></i> 保存配置
+                            </button>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="settings-container" style="max-width: 800px; margin: 0 auto; background: var(--bg-primary); padding: 32px; border-radius: 12px; border: 1px solid var(--border-color);">
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">AI 厂家</label>
+                                <select id="aiProviderSelect" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                    <option value="deepseek">DeepSeek</option>
+                                    <option value="openai">OpenAI</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">AI 模型</label>
+                                <select id="aiModelSelect" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;"></select>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">API Base URL（可选）</label>
+                                <input type="text" id="aiBaseUrlInput" placeholder="留空则使用默认" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <small style="display: block; margin-top: 4px; color: var(--text-secondary);">用于自建网关/代理或私有化部署（OpenAI: OPENAI_BASE_URL；DeepSeek: DEEPSEEK_BASE_URL）</small>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label id="apiKeyLabel" style="display: block; margin-bottom: 8px; font-weight: 500;">API Key</label>
+                                <input type="password" id="apiKeyInput" placeholder="sk-..." style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <small id="apiKeyHint" style="display: block; margin-top: 4px; color: var(--text-secondary);">用于访问 AI 模型的 API Key</small>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">OCR 配置</label>
+                                <select id="ocrKeyModeSelect" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                    <option value="reuse">复用 DeepSeek Key（默认）</option>
+                                    <option value="separate">单独配置 OCR Key</option>
+                                </select>
+                                <small id="ocrConfigHint" style="display: block; margin-top: 4px; color: var(--text-secondary);"></small>
+                            </div>
+
+                            <div class="form-group" id="ocrKeySection" style="margin-bottom: 20px; display:none;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">OCR API 密钥</label>
+                                <input type="password" id="ocrApiKeyInput" placeholder="sk-..." style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <small style="display: block; margin-top: 4px; color: var(--text-secondary);">不填写则保持现状；选择“复用 DeepSeek Key”并保存会回退为复用主 API Key</small>
+                            </div>
+
+                            <div style="margin: 28px 0 12px; font-weight: 600; color: var(--text-primary);">OCR 高级配置（可选）</div>
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">OCR Base URL</label>
+                                <input type="text" id="ocrBaseUrlInput" placeholder="https://api.deepseek.com/v1" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <small style="display: block; margin-top: 4px; color: var(--text-secondary);">留空则使用默认值</small>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">OCR 模型</label>
+                                <input type="text" id="ocrModelInput" placeholder="DeepSeek-OCR-2" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <small style="display: block; margin-top: 4px; color: var(--text-secondary);">留空则使用默认模型</small>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">OCR 超时（秒）</label>
+                                <input type="number" id="ocrTimeoutInput" placeholder="120" min="5" max="600" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <small style="display: block; margin-top: 4px; color: var(--text-secondary);">范围 5–600；留空则使用默认值</small>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">最大执行步骤 (Max Steps)</label>
+                                <input type="number" id="maxStepsInput" value="50" min="10" max="500" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">日志存储上限条数</label>
+                                <input type="number" id="auditLogMaxRowsInput" placeholder="10000" min="1" max="100000" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <small style="display: block; margin-top: 4px; color: var(--text-secondary);">用于合规审计日志保留条数；默认 10000，最大 100000。超过上限会自动保留最新日志并裁剪旧日志。</small>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">代理地址 (Proxy URL)</label>
+                                <input type="text" id="proxyUrlInput" placeholder="http://127.0.0.1:7890" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <small style="display: block; margin-top: 4px; color: var(--text-secondary);">仅支持 HTTP/HTTPS 代理（例如 http://127.0.0.1:7890）；用于 AI 接口、云端 OCR 与联网检索请求</small>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">反连网卡 (Bind Interface)</label>
+                                <select id="bindInterfaceSelect" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;"></select>
+                                <small id="bindInterfaceHint" style="display: block; margin-top: 4px; color: var(--text-secondary);"></small>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">反连 IP (LHOST)</label>
+                                <input type="text" id="lhostInput" placeholder="留空则使用所选网卡的本机 IP" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <small id="effectiveLhostHint" style="display: block; margin-top: 4px; color: var(--text-secondary);"></small>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">界面语言</label>
+                                <select id="languageSelect" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                    <option value="zh">简体中文</option>
+                                    <option value="en">English</option>
+                                </select>
+                            </div>
+
+                            <div style="margin: 28px 0 12px; font-weight: 600; color: var(--text-primary);">工具执行（可选）</div>
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">工具工作目录策略</label>
+                                <select id="toolWorkdirModeSelect" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                    <option value="project">project（项目根目录）</option>
+                                    <option value="isolated">isolated（按任务隔离目录）</option>
+                                    <option value="inherit">inherit（继承后端进程目录）</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">单次工具输出最大字符数</label>
+                                <input type="number" id="toolMaxOutputCharsInput" placeholder="200000" min="1000" max="2000000" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <small style="display: block; margin-top: 4px; color: var(--text-secondary);">用于防止超长输出导致卡顿；默认 200000</small>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">工具沙箱模式</label>
+                                <select id="toolSandboxSelect" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                    <option value="process">process（宿主机进程执行）</option>
+                                    <option value="docker">docker（容器沙箱执行）</option>
+                                </select>
+                                <small style="display: block; margin-top: 4px; color: var(--text-secondary);">Windows 环境下 docker 沙箱可能无效；Linux 推荐在隔离环境使用</small>
+                            </div>
+
+                            <div id="toolDockerSection" style="display:none;">
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Docker 镜像</label>
+                                    <input type="text" id="toolDockerImageInput" placeholder="kali:latest" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                    <small style="display: block; margin-top: 4px; color: var(--text-secondary);">启用 docker 沙箱时必填</small>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Docker 网络</label>
+                                    <select id="toolDockerNetworkSelect" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                        <option value="bridge">bridge</option>
+                                        <option value="host">host</option>
+                                        <option value="none">none</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Docker 内存限制（可选）</label>
+                                    <input type="text" id="toolDockerMemoryInput" placeholder="512m" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Docker PIDs 限制（可选）</label>
+                                    <input type="text" id="toolDockerPidsLimitInput" placeholder="256" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Report Preview -->
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="reportModalTitle">报告预览</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body" id="reportModalBody">
+                <!-- Markdown content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Vulnerability Detail -->
+    <div id="vulnModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="vulnModalTitle">漏洞详情</h3>
+                <span class="close-vuln-modal" style="font-size: 1.5rem; cursor: pointer;">&times;</span>
+            </div>
+            <div class="modal-body" id="vulnModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Adding Content -->
+    <div id="addModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h3 id="addModalTitle">添加内容</h3>
+                <span class="close-add-modal" style="font-size: 1.5rem; cursor: pointer;">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">文件名 / 名称</label>
+                    <input type="text" id="addFileName" placeholder="例如: MySkill.md" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 16px; display: flex; flex-direction: column; height: 60vh;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">内容</label>
+                    <textarea id="addFileContent" style="flex: 1; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-family: monospace; resize: none;"></textarea>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 12px;">
+                    <button id="saveAddBtn" class="btn-primary">
+                        <i class="fa-solid fa-save"></i> 保存
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js?v=1.0-0"></script>
+</body>
+</html>

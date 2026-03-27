@@ -1,0 +1,52 @@
+name: "stegsolve"
+command: "java"
+args: ["-jar"]
+enabled: true
+short_description: "图片隐写分析工具，用于分析图片中的隐写数据"
+description: |
+  Stegsolve 是一个 Java 图片隐写分析工具，支持多种图片格式和隐写分析技术。
+
+  **主要功能：**
+  - 图片格式转换
+  - 颜色通道分析
+  - LSB 隐写检测
+  - 图片叠加分析
+  - 数据提取
+
+  **使用场景：**
+  - CTF 隐写题目
+  - 图片隐写分析
+  - 数字取证
+  - 安全研究
+
+  **注意事项：**
+  - 需要 Java 环境
+  - 通常以 GUI 形式运行
+  - 可能需要通过命令行参数或脚本调用
+parameters:
+  - name: "jar_file"
+    type: "string"
+    description: "Stegsolve JAR 文件路径，例如 'stegsolve.jar'"
+    required: true
+    position: 0
+    format: "positional"
+  - name: "image"
+    type: "string"
+    description: "要分析的图片文件路径"
+    required: false
+    position: 1
+    format: "positional"
+  - name: "additional_args"
+    type: "string"
+    description: |
+      额外的stegsolve参数。用于传递未在参数列表中定义的stegsolve选项。
+
+      **示例值：**
+      - 根据工具特性添加常用参数示例
+
+      **注意事项：**
+      - 多个参数用空格分隔
+      - 确保参数格式正确，避免命令注入
+      - 此参数会直接追加到命令末尾
+    required: false
+    format: "positional"

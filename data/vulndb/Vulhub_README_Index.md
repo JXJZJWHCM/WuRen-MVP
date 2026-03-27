@@ -1,0 +1,630 @@
+# Vulhub README 索引
+
+- 源目录: `c:\Users\29530\Desktop\DM\vulhub`
+- 导入目录: `data/vulndb/vulhub`
+- 导入数量: 623
+
+## 条目列表
+- 1panel / CVE-2024-39907 （CVE: CVE-2024-39907） -> `data/vulndb/vulhub/1panel/CVE-2024-39907/README.md`
+- 1panel / CVE-2024-39907 （CVE: CVE-2024-39907） -> `data/vulndb/vulhub/1panel/CVE-2024-39907/README.zh-cn.md`
+- Vulhub （CVE: CVE-2025-3248） -> `data/vulndb/vulhub/README.md`
+- Vulhub （CVE: CVE-2025-3248） -> `data/vulndb/vulhub/README.zh-cn.md`
+- activemq / CVE-2015-5254 （CVE: CVE-2015-5254） -> `data/vulndb/vulhub/activemq/CVE-2015-5254/README.md`
+- activemq / CVE-2015-5254 （CVE: CVE-2015-5254） -> `data/vulndb/vulhub/activemq/CVE-2015-5254/README.zh-cn.md`
+- activemq / CVE-2016-3088 （CVE: CVE-2016-3088） -> `data/vulndb/vulhub/activemq/CVE-2016-3088/README.md`
+- activemq / CVE-2016-3088 （CVE: CVE-2016-3088） -> `data/vulndb/vulhub/activemq/CVE-2016-3088/README.zh-cn.md`
+- activemq / CVE-2022-41678 （CVE: CVE-2022-41678） -> `data/vulndb/vulhub/activemq/CVE-2022-41678/README.md`
+- activemq / CVE-2022-41678 （CVE: CVE-2022-41678） -> `data/vulndb/vulhub/activemq/CVE-2022-41678/README.zh-cn.md`
+- activemq / CVE-2023-46604 （CVE: CVE-2023-46604） -> `data/vulndb/vulhub/activemq/CVE-2023-46604/README.md`
+- activemq / CVE-2023-46604 （CVE: CVE-2023-46604） -> `data/vulndb/vulhub/activemq/CVE-2023-46604/README.zh-cn.md`
+- adminer / CVE-2021-21311 （CVE: CVE-2021-21311） -> `data/vulndb/vulhub/adminer/CVE-2021-21311/README.md`
+- adminer / CVE-2021-21311 （CVE: CVE-2021-21311） -> `data/vulndb/vulhub/adminer/CVE-2021-21311/README.zh-cn.md`
+- adminer / CVE-2021-43008 （CVE: CVE-2021-43008） -> `data/vulndb/vulhub/adminer/CVE-2021-43008/README.md`
+- adminer / CVE-2021-43008 （CVE: CVE-2021-43008） -> `data/vulndb/vulhub/adminer/CVE-2021-43008/README.zh-cn.md`
+- airflow / CVE-2020-11978 （CVE: CVE-2020-11978） -> `data/vulndb/vulhub/airflow/CVE-2020-11978/README.md`
+- airflow / CVE-2020-11978 （CVE: CVE-2020-11978） -> `data/vulndb/vulhub/airflow/CVE-2020-11978/README.zh-cn.md`
+- airflow / CVE-2020-11981 （CVE: CVE-2020-11981） -> `data/vulndb/vulhub/airflow/CVE-2020-11981/README.md`
+- airflow / CVE-2020-11981 （CVE: CVE-2020-11981） -> `data/vulndb/vulhub/airflow/CVE-2020-11981/README.zh-cn.md`
+- airflow / CVE-2020-17526 （CVE: CVE-2020-17526） -> `data/vulndb/vulhub/airflow/CVE-2020-17526/README.md`
+- airflow / CVE-2020-17526 （CVE: CVE-2020-17526） -> `data/vulndb/vulhub/airflow/CVE-2020-17526/README.zh-cn.md`
+- aj-report / CNVD-2024-15077  -> `data/vulndb/vulhub/aj-report/CNVD-2024-15077/README.md`
+- aj-report / CNVD-2024-15077  -> `data/vulndb/vulhub/aj-report/CNVD-2024-15077/README.zh-cn.md`
+- apache-cxf / CVE-2024-28752 （CVE: CVE-2024-28752） -> `data/vulndb/vulhub/apache-cxf/CVE-2024-28752/README.md`
+- apache-cxf / CVE-2024-28752 （CVE: CVE-2024-28752） -> `data/vulndb/vulhub/apache-cxf/CVE-2024-28752/README.zh-cn.md`
+- apache-druid / CVE-2021-25646 （CVE: CVE-2021-25646） -> `data/vulndb/vulhub/apache-druid/CVE-2021-25646/README.md`
+- apache-druid / CVE-2021-25646 （CVE: CVE-2021-25646） -> `data/vulndb/vulhub/apache-druid/CVE-2021-25646/README.zh-cn.md`
+- apereo-cas / 4.1-rce  -> `data/vulndb/vulhub/apereo-cas/4.1-rce/README.md`
+- apereo-cas / 4.1-rce  -> `data/vulndb/vulhub/apereo-cas/4.1-rce/README.zh-cn.md`
+- apisix / CVE-2020-13945 （CVE: CVE-2020-13945） -> `data/vulndb/vulhub/apisix/CVE-2020-13945/README.md`
+- apisix / CVE-2020-13945 （CVE: CVE-2020-13945） -> `data/vulndb/vulhub/apisix/CVE-2020-13945/README.zh-cn.md`
+- apisix / CVE-2021-45232 （CVE: CVE-2021-45232） -> `data/vulndb/vulhub/apisix/CVE-2021-45232/README.md`
+- apisix / CVE-2021-45232 （CVE: CVE-2021-45232） -> `data/vulndb/vulhub/apisix/CVE-2021-45232/README.zh-cn.md`
+- appweb / CVE-2018-8715 （CVE: CVE-2018-8715） -> `data/vulndb/vulhub/appweb/CVE-2018-8715/README.md`
+- appweb / CVE-2018-8715 （CVE: CVE-2018-8715） -> `data/vulndb/vulhub/appweb/CVE-2018-8715/README.zh-cn.md`
+- aria2 / rce  -> `data/vulndb/vulhub/aria2/rce/README.md`
+- aria2 / rce  -> `data/vulndb/vulhub/aria2/rce/README.zh-cn.md`
+- bash / CVE-2014-6271 （CVE: CVE-2014-6271） -> `data/vulndb/vulhub/bash/CVE-2014-6271/README.md`
+- bash / CVE-2014-6271 （CVE: CVE-2014-6271） -> `data/vulndb/vulhub/bash/CVE-2014-6271/README.zh-cn.md`
+- cacti / CVE-2022-46169 （CVE: CVE-2022-46169） -> `data/vulndb/vulhub/cacti/CVE-2022-46169/README.md`
+- cacti / CVE-2022-46169 （CVE: CVE-2022-46169） -> `data/vulndb/vulhub/cacti/CVE-2022-46169/README.zh-cn.md`
+- cacti / CVE-2023-39361 （CVE: CVE-2023-39361, CVE-2024-31459） -> `data/vulndb/vulhub/cacti/CVE-2023-39361/README.md`
+- cacti / CVE-2023-39361 （CVE: CVE-2023-39361, CVE-2024-31459） -> `data/vulndb/vulhub/cacti/CVE-2023-39361/README.zh-cn.md`
+- cacti / CVE-2025-24367 （CVE: CVE-2025-24367） -> `data/vulndb/vulhub/cacti/CVE-2025-24367/README.md`
+- cacti / CVE-2025-24367 （CVE: CVE-2025-24367） -> `data/vulndb/vulhub/cacti/CVE-2025-24367/README.zh-cn.md`
+- celery / celery3_redis_unauth  -> `data/vulndb/vulhub/celery/celery3_redis_unauth/README.md`
+- celery / celery3_redis_unauth  -> `data/vulndb/vulhub/celery/celery3_redis_unauth/README.zh-cn.md`
+- cgi / CVE-2016-5385 （CVE: CVE-2016-5385, CVE-2016-5386, CVE-2016-5387, CVE-2016-5388, CVE-2016-6286, CVE-2016-6287, CVE-2016-1000104, CVE-2016-1000105, CVE-2016-1000107, CVE-2016-1000108, CVE-2016-1000109, CVE-2016-1000110, CVE-2016-1000111, CVE-2016-1000212） -> `data/vulndb/vulhub/cgi/CVE-2016-5385/README.md`
+- cgi / CVE-2016-5385 （CVE: CVE-2016-5385, CVE-2016-5386, CVE-2016-5387, CVE-2016-5388, CVE-2016-6286, CVE-2016-6287, CVE-2016-1000104, CVE-2016-1000105, CVE-2016-1000107, CVE-2016-1000108, CVE-2016-1000109, CVE-2016-1000110, CVE-2016-1000111, CVE-2016-1000212） -> `data/vulndb/vulhub/cgi/CVE-2016-5385/README.zh-cn.md`
+- cmsms / CVE-2019-9053 （CVE: CVE-2019-9053, CVE-2021-26120） -> `data/vulndb/vulhub/cmsms/CVE-2019-9053/README.md`
+- cmsms / CVE-2019-9053 （CVE: CVE-2019-9053, CVE-2021-26120） -> `data/vulndb/vulhub/cmsms/CVE-2019-9053/README.zh-cn.md`
+- cmsms / CVE-2021-26120 （CVE: CVE-2021-26120, CVE-2019-9053） -> `data/vulndb/vulhub/cmsms/CVE-2021-26120/README.md`
+- cmsms / CVE-2021-26120 （CVE: CVE-2021-26120, CVE-2019-9053） -> `data/vulndb/vulhub/cmsms/CVE-2021-26120/README.zh-cn.md`
+- coldfusion / CVE-2010-2861 （CVE: CVE-2010-2861） -> `data/vulndb/vulhub/coldfusion/CVE-2010-2861/README.md`
+- coldfusion / CVE-2010-2861 （CVE: CVE-2010-2861） -> `data/vulndb/vulhub/coldfusion/CVE-2010-2861/README.zh-cn.md`
+- coldfusion / CVE-2017-3066 （CVE: CVE-2017-3066） -> `data/vulndb/vulhub/coldfusion/CVE-2017-3066/README.md`
+- coldfusion / CVE-2017-3066 （CVE: CVE-2017-3066） -> `data/vulndb/vulhub/coldfusion/CVE-2017-3066/README.zh-cn.md`
+- coldfusion / CVE-2023-26360 （CVE: CVE-2023-26360） -> `data/vulndb/vulhub/coldfusion/CVE-2023-26360/README.md`
+- coldfusion / CVE-2023-26360 （CVE: CVE-2023-26360） -> `data/vulndb/vulhub/coldfusion/CVE-2023-26360/README.zh-cn.md`
+- coldfusion / CVE-2023-29300 （CVE: CVE-2023-29300） -> `data/vulndb/vulhub/coldfusion/CVE-2023-29300/README.md`
+- coldfusion / CVE-2023-29300 （CVE: CVE-2023-29300） -> `data/vulndb/vulhub/coldfusion/CVE-2023-29300/README.zh-cn.md`
+- comfyui / CVE-2025-67303 （CVE: CVE-2025-67303） -> `data/vulndb/vulhub/comfyui/CVE-2025-67303/README.md`
+- comfyui / CVE-2025-67303 （CVE: CVE-2025-67303） -> `data/vulndb/vulhub/comfyui/CVE-2025-67303/README.zh-cn.md`
+- confluence / CVE-2019-3396 （CVE: CVE-2019-3396） -> `data/vulndb/vulhub/confluence/CVE-2019-3396/README.md`
+- confluence / CVE-2019-3396 （CVE: CVE-2019-3396） -> `data/vulndb/vulhub/confluence/CVE-2019-3396/README.zh-cn.md`
+- confluence / CVE-2021-26084 （CVE: CVE-2021-26084, CVE-2019-3396） -> `data/vulndb/vulhub/confluence/CVE-2021-26084/README.md`
+- confluence / CVE-2021-26084 （CVE: CVE-2021-26084, CVE-2019-3396） -> `data/vulndb/vulhub/confluence/CVE-2021-26084/README.zh-cn.md`
+- confluence / CVE-2022-26134 （CVE: CVE-2022-26134, CVE-2019-3396） -> `data/vulndb/vulhub/confluence/CVE-2022-26134/README.md`
+- confluence / CVE-2022-26134 （CVE: CVE-2022-26134, CVE-2019-3396） -> `data/vulndb/vulhub/confluence/CVE-2022-26134/README.zh-cn.md`
+- confluence / CVE-2023-22515 （CVE: CVE-2023-22515, CVE-2019-3396） -> `data/vulndb/vulhub/confluence/CVE-2023-22515/README.md`
+- confluence / CVE-2023-22515 （CVE: CVE-2023-22515, CVE-2019-3396） -> `data/vulndb/vulhub/confluence/CVE-2023-22515/README.zh-cn.md`
+- confluence / CVE-2023-22527 （CVE: CVE-2023-22527, CVE-2019-3396） -> `data/vulndb/vulhub/confluence/CVE-2023-22527/README.md`
+- confluence / CVE-2023-22527 （CVE: CVE-2023-22527, CVE-2019-3396） -> `data/vulndb/vulhub/confluence/CVE-2023-22527/README.zh-cn.md`
+- couchdb / CVE-2017-12635 （CVE: CVE-2017-12635） -> `data/vulndb/vulhub/couchdb/CVE-2017-12635/README.md`
+- couchdb / CVE-2017-12635 （CVE: CVE-2017-12635） -> `data/vulndb/vulhub/couchdb/CVE-2017-12635/README.zh-cn.md`
+- couchdb / CVE-2017-12636 （CVE: CVE-2017-12636, CVE-2017-12635） -> `data/vulndb/vulhub/couchdb/CVE-2017-12636/README.md`
+- couchdb / CVE-2017-12636 （CVE: CVE-2017-12636, CVE-2017-12635） -> `data/vulndb/vulhub/couchdb/CVE-2017-12636/README.zh-cn.md`
+- couchdb / CVE-2022-24706 （CVE: CVE-2022-24706） -> `data/vulndb/vulhub/couchdb/CVE-2022-24706/README.md`
+- couchdb / CVE-2022-24706 （CVE: CVE-2022-24706） -> `data/vulndb/vulhub/couchdb/CVE-2022-24706/README.zh-cn.md`
+- craftcms / CVE-2023-41892 （CVE: CVE-2023-41892） -> `data/vulndb/vulhub/craftcms/CVE-2023-41892/README.md`
+- craftcms / CVE-2023-41892 （CVE: CVE-2023-41892） -> `data/vulndb/vulhub/craftcms/CVE-2023-41892/README.zh-cn.md`
+- craftcms / CVE-2024-56145 （CVE: CVE-2024-56145） -> `data/vulndb/vulhub/craftcms/CVE-2024-56145/README.md`
+- craftcms / CVE-2024-56145 （CVE: CVE-2024-56145） -> `data/vulndb/vulhub/craftcms/CVE-2024-56145/README.zh-cn.md`
+- craftcms / CVE-2025-32432 （CVE: CVE-2025-32432） -> `data/vulndb/vulhub/craftcms/CVE-2025-32432/README.md`
+- craftcms / CVE-2025-32432 （CVE: CVE-2025-32432） -> `data/vulndb/vulhub/craftcms/CVE-2025-32432/README.zh-cn.md`
+- cups-browsed / CVE-2024-47177 （CVE: CVE-2024-47177） -> `data/vulndb/vulhub/cups-browsed/CVE-2024-47177/README.md`
+- cups-browsed / CVE-2024-47177 （CVE: CVE-2024-47177） -> `data/vulndb/vulhub/cups-browsed/CVE-2024-47177/README.zh-cn.md`
+- discuz / wooyun-2010-080723  -> `data/vulndb/vulhub/discuz/wooyun-2010-080723/README.md`
+- discuz / wooyun-2010-080723  -> `data/vulndb/vulhub/discuz/wooyun-2010-080723/README.zh-cn.md`
+- discuz / x3.4-arbitrary-file-deletion  -> `data/vulndb/vulhub/discuz/x3.4-arbitrary-file-deletion/README.md`
+- discuz / x3.4-arbitrary-file-deletion  -> `data/vulndb/vulhub/discuz/x3.4-arbitrary-file-deletion/README.zh-cn.md`
+- django / CVE-2017-12794 （CVE: CVE-2017-12794） -> `data/vulndb/vulhub/django/CVE-2017-12794/README.md`
+- django / CVE-2017-12794 （CVE: CVE-2017-12794） -> `data/vulndb/vulhub/django/CVE-2017-12794/README.zh-cn.md`
+- django / CVE-2018-14574 （CVE: CVE-2018-14574） -> `data/vulndb/vulhub/django/CVE-2018-14574/README.md`
+- django / CVE-2018-14574 （CVE: CVE-2018-14574） -> `data/vulndb/vulhub/django/CVE-2018-14574/README.zh-cn.md`
+- django / CVE-2019-14234 （CVE: CVE-2019-14234） -> `data/vulndb/vulhub/django/CVE-2019-14234/README.md`
+- django / CVE-2019-14234 （CVE: CVE-2019-14234） -> `data/vulndb/vulhub/django/CVE-2019-14234/README.zh-cn.md`
+- django / CVE-2020-9402 （CVE: CVE-2020-9402） -> `data/vulndb/vulhub/django/CVE-2020-9402/README.md`
+- django / CVE-2020-9402 （CVE: CVE-2020-9402） -> `data/vulndb/vulhub/django/CVE-2020-9402/README.zh-cn.md`
+- django / CVE-2021-35042 （CVE: CVE-2021-35042） -> `data/vulndb/vulhub/django/CVE-2021-35042/README.md`
+- django / CVE-2021-35042 （CVE: CVE-2021-35042） -> `data/vulndb/vulhub/django/CVE-2021-35042/README.zh-cn.md`
+- django / CVE-2022-34265 （CVE: CVE-2022-34265） -> `data/vulndb/vulhub/django/CVE-2022-34265/README.md`
+- django / CVE-2022-34265 （CVE: CVE-2022-34265） -> `data/vulndb/vulhub/django/CVE-2022-34265/README.zh-cn.md`
+- dns / dns-zone-transfer  -> `data/vulndb/vulhub/dns/dns-zone-transfer/README.md`
+- dns / dns-zone-transfer  -> `data/vulndb/vulhub/dns/dns-zone-transfer/README.zh-cn.md`
+- docker / unauthorized-rce  -> `data/vulndb/vulhub/docker/unauthorized-rce/README.md`
+- docker / unauthorized-rce  -> `data/vulndb/vulhub/docker/unauthorized-rce/README.zh-cn.md`
+- drupal / CVE-2014-3704 （CVE: CVE-2014-3704） -> `data/vulndb/vulhub/drupal/CVE-2014-3704/README.md`
+- drupal / CVE-2014-3704 （CVE: CVE-2014-3704） -> `data/vulndb/vulhub/drupal/CVE-2014-3704/README.zh-cn.md`
+- drupal / CVE-2017-6920 （CVE: CVE-2017-6920） -> `data/vulndb/vulhub/drupal/CVE-2017-6920/README.md`
+- drupal / CVE-2017-6920 （CVE: CVE-2017-6920） -> `data/vulndb/vulhub/drupal/CVE-2017-6920/README.zh-cn.md`
+- drupal / CVE-2018-7600 （CVE: CVE-2018-7600） -> `data/vulndb/vulhub/drupal/CVE-2018-7600/README.md`
+- drupal / CVE-2018-7600 （CVE: CVE-2018-7600） -> `data/vulndb/vulhub/drupal/CVE-2018-7600/README.zh-cn.md`
+- drupal / CVE-2018-7602 （CVE: CVE-2018-7602, CVE-2018-7600） -> `data/vulndb/vulhub/drupal/CVE-2018-7602/README.md`
+- drupal / CVE-2018-7602 （CVE: CVE-2018-7602, CVE-2018-7600） -> `data/vulndb/vulhub/drupal/CVE-2018-7602/README.zh-cn.md`
+- drupal / CVE-2019-6339 （CVE: CVE-2019-6339） -> `data/vulndb/vulhub/drupal/CVE-2019-6339/README.md`
+- drupal / CVE-2019-6339 （CVE: CVE-2019-6339） -> `data/vulndb/vulhub/drupal/CVE-2019-6339/README.zh-cn.md`
+- drupal / CVE-2019-6341 （CVE: CVE-2019-6341, CVE-2019-6339） -> `data/vulndb/vulhub/drupal/CVE-2019-6341/README.md`
+- drupal / CVE-2019-6341 （CVE: CVE-2019-6341, CVE-2019-6339） -> `data/vulndb/vulhub/drupal/CVE-2019-6341/README.zh-cn.md`
+- dubbo / CVE-2019-17564 （CVE: CVE-2019-17564） -> `data/vulndb/vulhub/dubbo/CVE-2019-17564/README.md`
+- dubbo / CVE-2019-17564 （CVE: CVE-2019-17564） -> `data/vulndb/vulhub/dubbo/CVE-2019-17564/README.zh-cn.md`
+- ecshop / collection_list-sqli  -> `data/vulndb/vulhub/ecshop/collection_list-sqli/README.md`
+- ecshop / collection_list-sqli  -> `data/vulndb/vulhub/ecshop/collection_list-sqli/README.zh-cn.md`
+- ecshop / xianzhi-2017-02-82239600  -> `data/vulndb/vulhub/ecshop/xianzhi-2017-02-82239600/README.md`
+- ecshop / xianzhi-2017-02-82239600  -> `data/vulndb/vulhub/ecshop/xianzhi-2017-02-82239600/README.zh-cn.md`
+- elasticsearch / CVE-2014-3120 （CVE: CVE-2014-3120） -> `data/vulndb/vulhub/elasticsearch/CVE-2014-3120/README.md`
+- elasticsearch / CVE-2014-3120 （CVE: CVE-2014-3120） -> `data/vulndb/vulhub/elasticsearch/CVE-2014-3120/README.zh-cn.md`
+- elasticsearch / CVE-2015-1427 （CVE: CVE-2015-1427, CVE-2014-3120） -> `data/vulndb/vulhub/elasticsearch/CVE-2015-1427/README.md`
+- elasticsearch / CVE-2015-1427 （CVE: CVE-2015-1427, CVE-2014-3120） -> `data/vulndb/vulhub/elasticsearch/CVE-2015-1427/README.zh-cn.md`
+- elasticsearch / CVE-2015-3337 （CVE: CVE-2015-3337） -> `data/vulndb/vulhub/elasticsearch/CVE-2015-3337/README.md`
+- elasticsearch / CVE-2015-3337 （CVE: CVE-2015-3337） -> `data/vulndb/vulhub/elasticsearch/CVE-2015-3337/README.zh-cn.md`
+- elasticsearch / CVE-2015-5531 （CVE: CVE-2015-5531） -> `data/vulndb/vulhub/elasticsearch/CVE-2015-5531/README.md`
+- elasticsearch / CVE-2015-5531 （CVE: CVE-2015-5531） -> `data/vulndb/vulhub/elasticsearch/CVE-2015-5531/README.zh-cn.md`
+- elasticsearch / WooYun-2015-110216 （CVE: CVE-2015-5531） -> `data/vulndb/vulhub/elasticsearch/WooYun-2015-110216/README.md`
+- elasticsearch / WooYun-2015-110216 （CVE: CVE-2015-5531） -> `data/vulndb/vulhub/elasticsearch/WooYun-2015-110216/README.zh-cn.md`
+- electron / CVE-2018-1000006 （CVE: CVE-2018-1000006） -> `data/vulndb/vulhub/electron/CVE-2018-1000006/README.md`
+- electron / CVE-2018-1000006 （CVE: CVE-2018-1000006） -> `data/vulndb/vulhub/electron/CVE-2018-1000006/README.zh-cn.md`
+- electron / CVE-2018-15685 （CVE: CVE-2018-15685） -> `data/vulndb/vulhub/electron/CVE-2018-15685/README.md`
+- electron / CVE-2018-15685 （CVE: CVE-2018-15685） -> `data/vulndb/vulhub/electron/CVE-2018-15685/README.zh-cn.md`
+- elfinder / CVE-2021-32682 （CVE: CVE-2021-32682） -> `data/vulndb/vulhub/elfinder/CVE-2021-32682/README.md`
+- elfinder / CVE-2021-32682 （CVE: CVE-2021-32682） -> `data/vulndb/vulhub/elfinder/CVE-2021-32682/README.zh-cn.md`
+- erlang / CVE-2025-32433 （CVE: CVE-2025-32433） -> `data/vulndb/vulhub/erlang/CVE-2025-32433/README.md`
+- erlang / CVE-2025-32433 （CVE: CVE-2025-32433） -> `data/vulndb/vulhub/erlang/CVE-2025-32433/README.zh-cn.md`
+- fastjson / 1.2.24-rce （CVE: CVE-2017-18349） -> `data/vulndb/vulhub/fastjson/1.2.24-rce/README.md`
+- fastjson / 1.2.24-rce （CVE: CVE-2017-18349） -> `data/vulndb/vulhub/fastjson/1.2.24-rce/README.zh-cn.md`
+- fastjson / 1.2.47-rce  -> `data/vulndb/vulhub/fastjson/1.2.47-rce/README.md`
+- fastjson / 1.2.47-rce  -> `data/vulndb/vulhub/fastjson/1.2.47-rce/README.zh-cn.md`
+- fastjson / vuln  -> `data/vulndb/vulhub/fastjson/vuln/README.md`
+- ffmpeg / CVE-2016-1897 （CVE: CVE-2016-1897, CVE-2016-1898） -> `data/vulndb/vulhub/ffmpeg/CVE-2016-1897/README.md`
+- ffmpeg / CVE-2016-1897 （CVE: CVE-2016-1897, CVE-2016-1898） -> `data/vulndb/vulhub/ffmpeg/CVE-2016-1897/README.zh-cn.md`
+- ffmpeg / CVE-2017-9993 （CVE: CVE-2017-9993, CVE-2016-1897） -> `data/vulndb/vulhub/ffmpeg/CVE-2017-9993/README.md`
+- ffmpeg / CVE-2017-9993 （CVE: CVE-2017-9993, CVE-2016-1897） -> `data/vulndb/vulhub/ffmpeg/CVE-2017-9993/README.zh-cn.md`
+- flask / ssti  -> `data/vulndb/vulhub/flask/ssti/README.md`
+- flask / ssti  -> `data/vulndb/vulhub/flask/ssti/README.zh-cn.md`
+- flink / CVE-2020-17518 （CVE: CVE-2020-17518） -> `data/vulndb/vulhub/flink/CVE-2020-17518/README.md`
+- flink / CVE-2020-17518 （CVE: CVE-2020-17518） -> `data/vulndb/vulhub/flink/CVE-2020-17518/README.zh-cn.md`
+- flink / CVE-2020-17519 （CVE: CVE-2020-17519） -> `data/vulndb/vulhub/flink/CVE-2020-17519/README.md`
+- flink / CVE-2020-17519 （CVE: CVE-2020-17519） -> `data/vulndb/vulhub/flink/CVE-2020-17519/README.zh-cn.md`
+- geoserver / CVE-2021-40822 （CVE: CVE-2021-40822） -> `data/vulndb/vulhub/geoserver/CVE-2021-40822/README.md`
+- geoserver / CVE-2021-40822 （CVE: CVE-2021-40822） -> `data/vulndb/vulhub/geoserver/CVE-2021-40822/README.zh-cn.md`
+- geoserver / CVE-2022-24816 （CVE: CVE-2022-24816, CVE-2023-35042） -> `data/vulndb/vulhub/geoserver/CVE-2022-24816/README.md`
+- geoserver / CVE-2022-24816 （CVE: CVE-2022-24816, CVE-2023-35042） -> `data/vulndb/vulhub/geoserver/CVE-2022-24816/README.zh-cn.md`
+- geoserver / CVE-2023-25157 （CVE: CVE-2023-25157, CVE-2023-25158） -> `data/vulndb/vulhub/geoserver/CVE-2023-25157/README.md`
+- geoserver / CVE-2023-25157 （CVE: CVE-2023-25157, CVE-2023-25158） -> `data/vulndb/vulhub/geoserver/CVE-2023-25157/README.zh-cn.md`
+- geoserver / CVE-2024-36401 （CVE: CVE-2024-36401, CVE-2022-41852） -> `data/vulndb/vulhub/geoserver/CVE-2024-36401/README.md`
+- geoserver / CVE-2024-36401 （CVE: CVE-2024-36401, CVE-2022-41852） -> `data/vulndb/vulhub/geoserver/CVE-2024-36401/README.zh-cn.md`
+- ghostscript / CVE-2018-16509 （CVE: CVE-2018-16509） -> `data/vulndb/vulhub/ghostscript/CVE-2018-16509/README.md`
+- ghostscript / CVE-2018-16509 （CVE: CVE-2018-16509） -> `data/vulndb/vulhub/ghostscript/CVE-2018-16509/README.zh-cn.md`
+- ghostscript / CVE-2018-19475 （CVE: CVE-2018-19475, CVE-2018-16509） -> `data/vulndb/vulhub/ghostscript/CVE-2018-19475/README.md`
+- ghostscript / CVE-2018-19475 （CVE: CVE-2018-19475, CVE-2018-16509） -> `data/vulndb/vulhub/ghostscript/CVE-2018-19475/README.zh-cn.md`
+- ghostscript / CVE-2019-6116 （CVE: CVE-2019-6116） -> `data/vulndb/vulhub/ghostscript/CVE-2019-6116/README.md`
+- ghostscript / CVE-2019-6116 （CVE: CVE-2019-6116） -> `data/vulndb/vulhub/ghostscript/CVE-2019-6116/README.zh-cn.md`
+- git / CVE-2017-8386 （CVE: CVE-2017-8386） -> `data/vulndb/vulhub/git/CVE-2017-8386/README.md`
+- git / CVE-2017-8386 （CVE: CVE-2017-8386） -> `data/vulndb/vulhub/git/CVE-2017-8386/README.zh-cn.md`
+- gitea / 1.4-rce  -> `data/vulndb/vulhub/gitea/1.4-rce/README.md`
+- gitea / 1.4-rce  -> `data/vulndb/vulhub/gitea/1.4-rce/README.zh-cn.md`
+- gitlab / CVE-2016-9086 （CVE: CVE-2016-9086） -> `data/vulndb/vulhub/gitlab/CVE-2016-9086/README.md`
+- gitlab / CVE-2016-9086 （CVE: CVE-2016-9086） -> `data/vulndb/vulhub/gitlab/CVE-2016-9086/README.zh-cn.md`
+- gitlab / CVE-2021-22205 （CVE: CVE-2021-22205, CVE-2021-22204） -> `data/vulndb/vulhub/gitlab/CVE-2021-22205/README.md`
+- gitlab / CVE-2021-22205 （CVE: CVE-2021-22205, CVE-2021-22204） -> `data/vulndb/vulhub/gitlab/CVE-2021-22205/README.zh-cn.md`
+- gitlist / 0.6.0-rce （CVE: CVE-2018-1000533） -> `data/vulndb/vulhub/gitlist/0.6.0-rce/README.md`
+- gitlist / CVE-2018-1000533 （CVE: CVE-2018-1000533） -> `data/vulndb/vulhub/gitlist/CVE-2018-1000533/README.md`
+- gitlist / CVE-2018-1000533 （CVE: CVE-2018-1000533） -> `data/vulndb/vulhub/gitlist/CVE-2018-1000533/README.zh-cn.md`
+- glassfish / CVE-2017-1000028 （CVE: CVE-2017-1000028） -> `data/vulndb/vulhub/glassfish/CVE-2017-1000028/README.md`
+- glassfish / CVE-2017-1000028 （CVE: CVE-2017-1000028） -> `data/vulndb/vulhub/glassfish/CVE-2017-1000028/README.zh-cn.md`
+- goahead / CVE-2017-17562 （CVE: CVE-2017-17562） -> `data/vulndb/vulhub/goahead/CVE-2017-17562/README.md`
+- goahead / CVE-2017-17562 （CVE: CVE-2017-17562） -> `data/vulndb/vulhub/goahead/CVE-2017-17562/README.zh-cn.md`
+- goahead / CVE-2021-42342 （CVE: CVE-2021-42342, CVE-2017-17562） -> `data/vulndb/vulhub/goahead/CVE-2021-42342/README.md`
+- goahead / CVE-2021-42342 （CVE: CVE-2021-42342, CVE-2017-17562） -> `data/vulndb/vulhub/goahead/CVE-2021-42342/README.zh-cn.md`
+- gogs / CVE-2018-18925 （CVE: CVE-2018-18925） -> `data/vulndb/vulhub/gogs/CVE-2018-18925/README.md`
+- gogs / CVE-2018-18925 （CVE: CVE-2018-18925） -> `data/vulndb/vulhub/gogs/CVE-2018-18925/README.zh-cn.md`
+- gradio / CVE-2023-51449 （CVE: CVE-2023-51449） -> `data/vulndb/vulhub/gradio/CVE-2023-51449/README.md`
+- gradio / CVE-2023-51449 （CVE: CVE-2023-51449） -> `data/vulndb/vulhub/gradio/CVE-2023-51449/README.zh-cn.md`
+- gradio / CVE-2024-1561 （CVE: CVE-2024-1561） -> `data/vulndb/vulhub/gradio/CVE-2024-1561/README.md`
+- gradio / CVE-2024-1561 （CVE: CVE-2024-1561） -> `data/vulndb/vulhub/gradio/CVE-2024-1561/README.zh-cn.md`
+- grafana / CVE-2021-43798 （CVE: CVE-2021-43798） -> `data/vulndb/vulhub/grafana/CVE-2021-43798/README.md`
+- grafana / CVE-2021-43798 （CVE: CVE-2021-43798） -> `data/vulndb/vulhub/grafana/CVE-2021-43798/README.zh-cn.md`
+- grafana / admin-ssrf  -> `data/vulndb/vulhub/grafana/admin-ssrf/README.md`
+- grafana / admin-ssrf  -> `data/vulndb/vulhub/grafana/admin-ssrf/README.zh-cn.md`
+- h2database / CVE-2018-10054 （CVE: CVE-2018-10054） -> `data/vulndb/vulhub/h2database/CVE-2018-10054/README.md`
+- h2database / CVE-2018-10054 （CVE: CVE-2018-10054） -> `data/vulndb/vulhub/h2database/CVE-2018-10054/README.zh-cn.md`
+- h2database / CVE-2021-42392 （CVE: CVE-2021-42392, CVE-2018-10054） -> `data/vulndb/vulhub/h2database/CVE-2021-42392/README.md`
+- h2database / CVE-2021-42392 （CVE: CVE-2021-42392, CVE-2018-10054） -> `data/vulndb/vulhub/h2database/CVE-2021-42392/README.zh-cn.md`
+- h2database / CVE-2022-23221 （CVE: CVE-2022-23221, CVE-2018-10054） -> `data/vulndb/vulhub/h2database/CVE-2022-23221/README.md`
+- h2database / CVE-2022-23221 （CVE: CVE-2022-23221, CVE-2018-10054） -> `data/vulndb/vulhub/h2database/CVE-2022-23221/README.zh-cn.md`
+- hadoop / unauthorized-yarn  -> `data/vulndb/vulhub/hadoop/unauthorized-yarn/README.md`
+- hadoop / unauthorized-yarn  -> `data/vulndb/vulhub/hadoop/unauthorized-yarn/README.zh-cn.md`
+- hertzbeat / CVE-2024-42323 （CVE: CVE-2024-42323） -> `data/vulndb/vulhub/hertzbeat/CVE-2024-42323/README.md`
+- hertzbeat / CVE-2024-42323 （CVE: CVE-2024-42323） -> `data/vulndb/vulhub/hertzbeat/CVE-2024-42323/README.zh-cn.md`
+- httpd / CVE-2017-15715 （CVE: CVE-2017-15715） -> `data/vulndb/vulhub/httpd/CVE-2017-15715/README.md`
+- httpd / CVE-2017-15715 （CVE: CVE-2017-15715） -> `data/vulndb/vulhub/httpd/CVE-2017-15715/README.zh-cn.md`
+- httpd / CVE-2021-40438 （CVE: CVE-2021-40438） -> `data/vulndb/vulhub/httpd/CVE-2021-40438/README.md`
+- httpd / CVE-2021-40438 （CVE: CVE-2021-40438） -> `data/vulndb/vulhub/httpd/CVE-2021-40438/README.zh-cn.md`
+- httpd / CVE-2021-41773 （CVE: CVE-2021-41773） -> `data/vulndb/vulhub/httpd/CVE-2021-41773/README.md`
+- httpd / CVE-2021-41773 （CVE: CVE-2021-41773） -> `data/vulndb/vulhub/httpd/CVE-2021-41773/README.zh-cn.md`
+- httpd / CVE-2021-42013 （CVE: CVE-2021-42013, CVE-2021-41773） -> `data/vulndb/vulhub/httpd/CVE-2021-42013/README.md`
+- httpd / CVE-2021-42013 （CVE: CVE-2021-42013, CVE-2021-41773） -> `data/vulndb/vulhub/httpd/CVE-2021-42013/README.zh-cn.md`
+- httpd / apache_parsing_vulnerability  -> `data/vulndb/vulhub/httpd/apache_parsing_vulnerability/README.md`
+- httpd / apache_parsing_vulnerability  -> `data/vulndb/vulhub/httpd/apache_parsing_vulnerability/README.zh-cn.md`
+- httpd / ssi-rce  -> `data/vulndb/vulhub/httpd/ssi-rce/README.md`
+- httpd / ssi-rce  -> `data/vulndb/vulhub/httpd/ssi-rce/README.zh-cn.md`
+- hugegraph / CVE-2024-27348 （CVE: CVE-2024-27348） -> `data/vulndb/vulhub/hugegraph/CVE-2024-27348/README.md`
+- hugegraph / CVE-2024-27348 （CVE: CVE-2024-27348） -> `data/vulndb/vulhub/hugegraph/CVE-2024-27348/README.zh-cn.md`
+- hugegraph / CVE-2024-43441 （CVE: CVE-2024-43441） -> `data/vulndb/vulhub/hugegraph/CVE-2024-43441/README.md`
+- hugegraph / CVE-2024-43441 （CVE: CVE-2024-43441） -> `data/vulndb/vulhub/hugegraph/CVE-2024-43441/README.zh-cn.md`
+- imagemagick / CVE-2016-3714 （CVE: CVE-2016-3714） -> `data/vulndb/vulhub/imagemagick/CVE-2016-3714/README.md`
+- imagemagick / CVE-2016-3714 （CVE: CVE-2016-3714） -> `data/vulndb/vulhub/imagemagick/CVE-2016-3714/README.zh-cn.md`
+- imagemagick / CVE-2020-29599 （CVE: CVE-2020-29599） -> `data/vulndb/vulhub/imagemagick/CVE-2020-29599/README.md`
+- imagemagick / CVE-2020-29599 （CVE: CVE-2020-29599） -> `data/vulndb/vulhub/imagemagick/CVE-2020-29599/README.zh-cn.md`
+- imagemagick / CVE-2022-44268 （CVE: CVE-2022-44268） -> `data/vulndb/vulhub/imagemagick/CVE-2022-44268/README.md`
+- imagemagick / CVE-2022-44268 （CVE: CVE-2022-44268） -> `data/vulndb/vulhub/imagemagick/CVE-2022-44268/README.zh-cn.md`
+- imagemagick / imagetragick （CVE: CVE-2016-3714） -> `data/vulndb/vulhub/imagemagick/imagetragick/README.md`
+- inetutils / CVE-2026-24061 （CVE: CVE-2026-24061） -> `data/vulndb/vulhub/inetutils/CVE-2026-24061/README.md`
+- inetutils / CVE-2026-24061 （CVE: CVE-2026-24061） -> `data/vulndb/vulhub/inetutils/CVE-2026-24061/README.zh-cn.md`
+- influxdb / CVE-2019-20933 （CVE: CVE-2019-20933） -> `data/vulndb/vulhub/influxdb/CVE-2019-20933/README.md`
+- influxdb / CVE-2019-20933 （CVE: CVE-2019-20933） -> `data/vulndb/vulhub/influxdb/CVE-2019-20933/README.zh-cn.md`
+- ingress-nginx / CVE-2025-1974 （CVE: CVE-2025-1974, CVE-2025-24514, CVE-2025-1097, CVE-2025-1098） -> `data/vulndb/vulhub/ingress-nginx/CVE-2025-1974/README.md`
+- ingress-nginx / CVE-2025-1974 （CVE: CVE-2025-1974, CVE-2025-24514, CVE-2025-1097, CVE-2025-1098） -> `data/vulndb/vulhub/ingress-nginx/CVE-2025-1974/README.zh-cn.md`
+- jackson / CVE-2017-7525 （CVE: CVE-2017-7525, CVE-2017-17485） -> `data/vulndb/vulhub/jackson/CVE-2017-7525/README.md`
+- jackson / CVE-2017-7525 （CVE: CVE-2017-7525, CVE-2017-17485） -> `data/vulndb/vulhub/jackson/CVE-2017-7525/README.zh-cn.md`
+- java / rmi-codebase  -> `data/vulndb/vulhub/java/rmi-codebase/README.md`
+- java / rmi-codebase  -> `data/vulndb/vulhub/java/rmi-codebase/README.zh-cn.md`
+- java / rmi-registry-bind-deserialization-bypass  -> `data/vulndb/vulhub/java/rmi-registry-bind-deserialization-bypass/README.md`
+- java / rmi-registry-bind-deserialization-bypass  -> `data/vulndb/vulhub/java/rmi-registry-bind-deserialization-bypass/README.zh-cn.md`
+- java / rmi-registry-bind-deserialization  -> `data/vulndb/vulhub/java/rmi-registry-bind-deserialization/README.md`
+- java / rmi-registry-bind-deserialization  -> `data/vulndb/vulhub/java/rmi-registry-bind-deserialization/README.zh-cn.md`
+- jboss / CVE-2017-12149 （CVE: CVE-2017-12149） -> `data/vulndb/vulhub/jboss/CVE-2017-12149/README.md`
+- jboss / CVE-2017-12149 （CVE: CVE-2017-12149） -> `data/vulndb/vulhub/jboss/CVE-2017-12149/README.zh-cn.md`
+- jboss / CVE-2017-7504 （CVE: CVE-2017-7504） -> `data/vulndb/vulhub/jboss/CVE-2017-7504/README.md`
+- jboss / CVE-2017-7504 （CVE: CVE-2017-7504） -> `data/vulndb/vulhub/jboss/CVE-2017-7504/README.zh-cn.md`
+- jboss / JMXInvokerServlet-deserialization （CVE: CVE-2017-12149） -> `data/vulndb/vulhub/jboss/JMXInvokerServlet-deserialization/README.md`
+- jboss / JMXInvokerServlet-deserialization （CVE: CVE-2017-12149） -> `data/vulndb/vulhub/jboss/JMXInvokerServlet-deserialization/README.zh-cn.md`
+- jenkins / CVE-2017-1000353 （CVE: CVE-2017-1000353） -> `data/vulndb/vulhub/jenkins/CVE-2017-1000353/README.md`
+- jenkins / CVE-2017-1000353 （CVE: CVE-2017-1000353） -> `data/vulndb/vulhub/jenkins/CVE-2017-1000353/README.zh-cn.md`
+- jenkins / CVE-2018-1000861 （CVE: CVE-2018-1000861） -> `data/vulndb/vulhub/jenkins/CVE-2018-1000861/README.md`
+- jenkins / CVE-2018-1000861 （CVE: CVE-2018-1000861） -> `data/vulndb/vulhub/jenkins/CVE-2018-1000861/README.zh-cn.md`
+- jenkins / CVE-2024-23897 （CVE: CVE-2024-23897） -> `data/vulndb/vulhub/jenkins/CVE-2024-23897/README.md`
+- jenkins / CVE-2024-23897 （CVE: CVE-2024-23897） -> `data/vulndb/vulhub/jenkins/CVE-2024-23897/README.zh-cn.md`
+- jetty / CVE-2021-28164 （CVE: CVE-2021-28164） -> `data/vulndb/vulhub/jetty/CVE-2021-28164/README.md`
+- jetty / CVE-2021-28164 （CVE: CVE-2021-28164） -> `data/vulndb/vulhub/jetty/CVE-2021-28164/README.zh-cn.md`
+- jetty / CVE-2021-28169 （CVE: CVE-2021-28169） -> `data/vulndb/vulhub/jetty/CVE-2021-28169/README.md`
+- jetty / CVE-2021-28169 （CVE: CVE-2021-28169） -> `data/vulndb/vulhub/jetty/CVE-2021-28169/README.zh-cn.md`
+- jetty / CVE-2021-34429 （CVE: CVE-2021-34429, CVE-2021-28164） -> `data/vulndb/vulhub/jetty/CVE-2021-34429/README.md`
+- jetty / CVE-2021-34429 （CVE: CVE-2021-34429, CVE-2021-28164） -> `data/vulndb/vulhub/jetty/CVE-2021-34429/README.zh-cn.md`
+- jimureport / CVE-2023-4450 （CVE: CVE-2023-4450） -> `data/vulndb/vulhub/jimureport/CVE-2023-4450/README.md`
+- jimureport / CVE-2023-4450 （CVE: CVE-2023-4450） -> `data/vulndb/vulhub/jimureport/CVE-2023-4450/README.zh-cn.md`
+- jira / CVE-2019-11581 （CVE: CVE-2019-11581, CVE-2019-3396） -> `data/vulndb/vulhub/jira/CVE-2019-11581/README.md`
+- jira / CVE-2019-11581 （CVE: CVE-2019-11581） -> `data/vulndb/vulhub/jira/CVE-2019-11581/README.zh-cn.md`
+- jmeter / CVE-2018-1297 （CVE: CVE-2018-1297） -> `data/vulndb/vulhub/jmeter/CVE-2018-1297/README.md`
+- jmeter / CVE-2018-1297 （CVE: CVE-2018-1297） -> `data/vulndb/vulhub/jmeter/CVE-2018-1297/README.zh-cn.md`
+- joomla / CVE-2015-8562 （CVE: CVE-2015-8562） -> `data/vulndb/vulhub/joomla/CVE-2015-8562/README.md`
+- joomla / CVE-2015-8562 （CVE: CVE-2015-8562） -> `data/vulndb/vulhub/joomla/CVE-2015-8562/README.zh-cn.md`
+- joomla / CVE-2017-8917 （CVE: CVE-2017-8917） -> `data/vulndb/vulhub/joomla/CVE-2017-8917/README.md`
+- joomla / CVE-2017-8917 （CVE: CVE-2017-8917） -> `data/vulndb/vulhub/joomla/CVE-2017-8917/README.zh-cn.md`
+- joomla / CVE-2023-23752 （CVE: CVE-2023-23752） -> `data/vulndb/vulhub/joomla/CVE-2023-23752/README.md`
+- joomla / CVE-2023-23752 （CVE: CVE-2023-23752） -> `data/vulndb/vulhub/joomla/CVE-2023-23752/README.zh-cn.md`
+- jumpserver / CVE-2023-42820 （CVE: CVE-2023-42820） -> `data/vulndb/vulhub/jumpserver/CVE-2023-42820/README.md`
+- jumpserver / CVE-2023-42820 （CVE: CVE-2023-42820） -> `data/vulndb/vulhub/jumpserver/CVE-2023-42820/README.zh-cn.md`
+- jupyter / notebook-rce  -> `data/vulndb/vulhub/jupyter/notebook-rce/README.md`
+- jupyter / notebook-rce  -> `data/vulndb/vulhub/jupyter/notebook-rce/README.zh-cn.md`
+- kafka / CVE-2023-25194 （CVE: CVE-2023-25194） -> `data/vulndb/vulhub/kafka/CVE-2023-25194/README.md`
+- kafka / CVE-2023-25194 （CVE: CVE-2023-25194） -> `data/vulndb/vulhub/kafka/CVE-2023-25194/README.zh-cn.md`
+- kibana / CVE-2018-17246 （CVE: CVE-2018-17246） -> `data/vulndb/vulhub/kibana/CVE-2018-17246/README.md`
+- kibana / CVE-2018-17246 （CVE: CVE-2018-17246） -> `data/vulndb/vulhub/kibana/CVE-2018-17246/README.zh-cn.md`
+- kibana / CVE-2019-7609 （CVE: CVE-2019-7609） -> `data/vulndb/vulhub/kibana/CVE-2019-7609/README.md`
+- kibana / CVE-2019-7609 （CVE: CVE-2019-7609） -> `data/vulndb/vulhub/kibana/CVE-2019-7609/README.zh-cn.md`
+- kibana / CVE-2020-7012 （CVE: CVE-2020-7012） -> `data/vulndb/vulhub/kibana/CVE-2020-7012/README.md`
+- kibana / CVE-2020-7012 （CVE: CVE-2020-7012） -> `data/vulndb/vulhub/kibana/CVE-2020-7012/README.zh-cn.md`
+- kkfileview / 4.3-zipslip-rce  -> `data/vulndb/vulhub/kkfileview/4.3-zipslip-rce/README.md`
+- kkfileview / 4.3-zipslip-rce  -> `data/vulndb/vulhub/kkfileview/4.3-zipslip-rce/README.zh-cn.md`
+- langflow / CVE-2025-3248 （CVE: CVE-2025-3248） -> `data/vulndb/vulhub/langflow/CVE-2025-3248/README.md`
+- langflow / CVE-2025-3248 （CVE: CVE-2025-3248） -> `data/vulndb/vulhub/langflow/CVE-2025-3248/README.zh-cn.md`
+- laravel / CVE-2021-3129 （CVE: CVE-2021-3129） -> `data/vulndb/vulhub/laravel/CVE-2021-3129/README.md`
+- laravel / CVE-2021-3129 （CVE: CVE-2021-3129） -> `data/vulndb/vulhub/laravel/CVE-2021-3129/README.zh-cn.md`
+- librsvg / CVE-2023-38633 （CVE: CVE-2023-38633） -> `data/vulndb/vulhub/librsvg/CVE-2023-38633/README.md`
+- librsvg / CVE-2023-38633 （CVE: CVE-2023-38633） -> `data/vulndb/vulhub/librsvg/CVE-2023-38633/README.zh-cn.md`
+- libssh / CVE-2018-10933 （CVE: CVE-2018-10933） -> `data/vulndb/vulhub/libssh/CVE-2018-10933/README.md`
+- libssh / CVE-2018-10933 （CVE: CVE-2018-10933） -> `data/vulndb/vulhub/libssh/CVE-2018-10933/README.zh-cn.md`
+- liferay-portal / CVE-2020-7961 （CVE: CVE-2020-7961） -> `data/vulndb/vulhub/liferay-portal/CVE-2020-7961/README.md`
+- liferay-portal / CVE-2020-7961 （CVE: CVE-2020-7961） -> `data/vulndb/vulhub/liferay-portal/CVE-2020-7961/README.zh-cn.md`
+- livewire / CVE-2025-54068 （CVE: CVE-2025-54068） -> `data/vulndb/vulhub/livewire/CVE-2025-54068/README.md`
+- livewire / CVE-2025-54068 （CVE: CVE-2025-54068） -> `data/vulndb/vulhub/livewire/CVE-2025-54068/README.zh-cn.md`
+- log4j / CVE-2017-5645 （CVE: CVE-2017-5645） -> `data/vulndb/vulhub/log4j/CVE-2017-5645/README.md`
+- log4j / CVE-2017-5645 （CVE: CVE-2017-5645） -> `data/vulndb/vulhub/log4j/CVE-2017-5645/README.zh-cn.md`
+- log4j / CVE-2021-44228 （CVE: CVE-2021-44228） -> `data/vulndb/vulhub/log4j/CVE-2021-44228/README.md`
+- log4j / CVE-2021-44228 （CVE: CVE-2021-44228） -> `data/vulndb/vulhub/log4j/CVE-2021-44228/README.zh-cn.md`
+- magento / 2.2-sqli  -> `data/vulndb/vulhub/magento/2.2-sqli/README.md`
+- magento / 2.2-sqli  -> `data/vulndb/vulhub/magento/2.2-sqli/README.zh-cn.md`
+- metabase / CVE-2021-41277 （CVE: CVE-2021-41277） -> `data/vulndb/vulhub/metabase/CVE-2021-41277/README.md`
+- metabase / CVE-2021-41277 （CVE: CVE-2021-41277） -> `data/vulndb/vulhub/metabase/CVE-2021-41277/README.zh-cn.md`
+- metabase / CVE-2023-38646 （CVE: CVE-2023-38646） -> `data/vulndb/vulhub/metabase/CVE-2023-38646/README.md`
+- metabase / CVE-2023-38646 （CVE: CVE-2023-38646） -> `data/vulndb/vulhub/metabase/CVE-2023-38646/README.zh-cn.md`
+- metersphere / CVE-2021-45788 （CVE: CVE-2021-45788） -> `data/vulndb/vulhub/metersphere/CVE-2021-45788/README.md`
+- metersphere / CVE-2021-45788 （CVE: CVE-2021-45788） -> `data/vulndb/vulhub/metersphere/CVE-2021-45788/README.zh-cn.md`
+- metersphere / plugin-rce  -> `data/vulndb/vulhub/metersphere/plugin-rce/README.md`
+- metersphere / plugin-rce  -> `data/vulndb/vulhub/metersphere/plugin-rce/README.zh-cn.md`
+- mini_httpd / CVE-2018-18778 （CVE: CVE-2018-18778） -> `data/vulndb/vulhub/mini_httpd/CVE-2018-18778/README.md`
+- mini_httpd / CVE-2018-18778 （CVE: CVE-2018-18778） -> `data/vulndb/vulhub/mini_httpd/CVE-2018-18778/README.zh-cn.md`
+- minio / CVE-2023-28432 （CVE: CVE-2023-28432） -> `data/vulndb/vulhub/minio/CVE-2023-28432/README.md`
+- minio / CVE-2023-28432 （CVE: CVE-2023-28432） -> `data/vulndb/vulhub/minio/CVE-2023-28432/README.zh-cn.md`
+- mojarra / jsf-viewstate-deserialization  -> `data/vulndb/vulhub/mojarra/jsf-viewstate-deserialization/README.md`
+- mojarra / jsf-viewstate-deserialization  -> `data/vulndb/vulhub/mojarra/jsf-viewstate-deserialization/README.zh-cn.md`
+- mongo-express / CVE-2019-10758 （CVE: CVE-2019-10758） -> `data/vulndb/vulhub/mongo-express/CVE-2019-10758/README.md`
+- mongo-express / CVE-2019-10758 （CVE: CVE-2019-10758） -> `data/vulndb/vulhub/mongo-express/CVE-2019-10758/README.zh-cn.md`
+- mysql / CVE-2012-2122 （CVE: CVE-2012-2122） -> `data/vulndb/vulhub/mysql/CVE-2012-2122/README.md`
+- mysql / CVE-2012-2122 （CVE: CVE-2012-2122） -> `data/vulndb/vulhub/mysql/CVE-2012-2122/README.zh-cn.md`
+- nacos / CVE-2021-29441 （CVE: CVE-2021-29441） -> `data/vulndb/vulhub/nacos/CVE-2021-29441/README.md`
+- nacos / CVE-2021-29441 （CVE: CVE-2021-29441） -> `data/vulndb/vulhub/nacos/CVE-2021-29441/README.zh-cn.md`
+- nacos / CVE-2021-29442 （CVE: CVE-2021-29442） -> `data/vulndb/vulhub/nacos/CVE-2021-29442/README.md`
+- nacos / CVE-2021-29442 （CVE: CVE-2021-29442） -> `data/vulndb/vulhub/nacos/CVE-2021-29442/README.zh-cn.md`
+- neo4j / CVE-2021-34371 （CVE: CVE-2021-34371） -> `data/vulndb/vulhub/neo4j/CVE-2021-34371/README.md`
+- neo4j / CVE-2021-34371 （CVE: CVE-2021-34371） -> `data/vulndb/vulhub/neo4j/CVE-2021-34371/README.zh-cn.md`
+- next.js / CVE-2025-29927 （CVE: CVE-2025-29927） -> `data/vulndb/vulhub/next.js/CVE-2025-29927/README.md`
+- next.js / CVE-2025-29927 （CVE: CVE-2025-29927） -> `data/vulndb/vulhub/next.js/CVE-2025-29927/README.zh-cn.md`
+- nexus / CVE-2019-7238 （CVE: CVE-2019-7238） -> `data/vulndb/vulhub/nexus/CVE-2019-7238/README.md`
+- nexus / CVE-2019-7238 （CVE: CVE-2019-7238） -> `data/vulndb/vulhub/nexus/CVE-2019-7238/README.zh-cn.md`
+- nexus / CVE-2020-10199 （CVE: CVE-2020-10199） -> `data/vulndb/vulhub/nexus/CVE-2020-10199/README.md`
+- nexus / CVE-2020-10199 （CVE: CVE-2020-10199） -> `data/vulndb/vulhub/nexus/CVE-2020-10199/README.zh-cn.md`
+- nexus / CVE-2020-10204 （CVE: CVE-2020-10204, CVE-2018-16621, CVE-2020-10199） -> `data/vulndb/vulhub/nexus/CVE-2020-10204/README.md`
+- nexus / CVE-2020-10204 （CVE: CVE-2020-10204, CVE-2020-10199） -> `data/vulndb/vulhub/nexus/CVE-2020-10204/README.zh-cn.md`
+- nexus / CVE-2024-4956 （CVE: CVE-2024-4956, CVE-2018-1271） -> `data/vulndb/vulhub/nexus/CVE-2024-4956/README.md`
+- nexus / CVE-2024-4956 （CVE: CVE-2024-4956） -> `data/vulndb/vulhub/nexus/CVE-2024-4956/README.zh-cn.md`
+- nginx / CVE-2013-4547 （CVE: CVE-2013-4547） -> `data/vulndb/vulhub/nginx/CVE-2013-4547/README.md`
+- nginx / CVE-2013-4547 （CVE: CVE-2013-4547） -> `data/vulndb/vulhub/nginx/CVE-2013-4547/README.zh-cn.md`
+- nginx / CVE-2017-7529 （CVE: CVE-2017-7529） -> `data/vulndb/vulhub/nginx/CVE-2017-7529/README.md`
+- nginx / CVE-2017-7529 （CVE: CVE-2017-7529） -> `data/vulndb/vulhub/nginx/CVE-2017-7529/README.zh-cn.md`
+- nginx / insecure-configuration （CVE: CVE-2016-9964） -> `data/vulndb/vulhub/nginx/insecure-configuration/README.md`
+- nginx / insecure-configuration （CVE: CVE-2016-9964） -> `data/vulndb/vulhub/nginx/insecure-configuration/README.zh-cn.md`
+- nginx / nginx_parsing_vulnerability  -> `data/vulndb/vulhub/nginx/nginx_parsing_vulnerability/README.md`
+- nginx / nginx_parsing_vulnerability  -> `data/vulndb/vulhub/nginx/nginx_parsing_vulnerability/README.zh-cn.md`
+- node / CVE-2017-14849 （CVE: CVE-2017-14849） -> `data/vulndb/vulhub/node/CVE-2017-14849/README.md`
+- node / CVE-2017-14849 （CVE: CVE-2017-14849） -> `data/vulndb/vulhub/node/CVE-2017-14849/README.zh-cn.md`
+- node / CVE-2017-16082 （CVE: CVE-2017-16082） -> `data/vulndb/vulhub/node/CVE-2017-16082/README.md`
+- node / CVE-2017-16082 （CVE: CVE-2017-16082） -> `data/vulndb/vulhub/node/CVE-2017-16082/README.zh-cn.md`
+- ntopng / CVE-2021-28073 （CVE: CVE-2021-28073） -> `data/vulndb/vulhub/ntopng/CVE-2021-28073/README.md`
+- ntopng / CVE-2021-28073 （CVE: CVE-2021-28073） -> `data/vulndb/vulhub/ntopng/CVE-2021-28073/README.zh-cn.md`
+- ofbiz / CVE-2020-9496 （CVE: CVE-2020-9496） -> `data/vulndb/vulhub/ofbiz/CVE-2020-9496/README.md`
+- ofbiz / CVE-2020-9496 （CVE: CVE-2020-9496） -> `data/vulndb/vulhub/ofbiz/CVE-2020-9496/README.zh-cn.md`
+- ofbiz / CVE-2023-49070 （CVE: CVE-2023-49070, CVE-2020-9496） -> `data/vulndb/vulhub/ofbiz/CVE-2023-49070/README.md`
+- ofbiz / CVE-2023-49070 （CVE: CVE-2023-49070, CVE-2020-9496） -> `data/vulndb/vulhub/ofbiz/CVE-2023-49070/README.zh-cn.md`
+- ofbiz / CVE-2023-51467 （CVE: CVE-2023-51467, CVE-2023-49070） -> `data/vulndb/vulhub/ofbiz/CVE-2023-51467/README.md`
+- ofbiz / CVE-2023-51467 （CVE: CVE-2023-51467, CVE-2023-49070） -> `data/vulndb/vulhub/ofbiz/CVE-2023-51467/README.zh-cn.md`
+- ofbiz / CVE-2024-38856 （CVE: CVE-2024-38856, CVE-2023-51467） -> `data/vulndb/vulhub/ofbiz/CVE-2024-38856/README.md`
+- ofbiz / CVE-2024-38856 （CVE: CVE-2024-38856, CVE-2023-51467） -> `data/vulndb/vulhub/ofbiz/CVE-2024-38856/README.zh-cn.md`
+- ofbiz / CVE-2024-45195 （CVE: CVE-2024-45195, CVE-2024-32113, CVE-2024-36104, CVE-2024-38856） -> `data/vulndb/vulhub/ofbiz/CVE-2024-45195/README.md`
+- ofbiz / CVE-2024-45195 （CVE: CVE-2024-45195, CVE-2024-32113） -> `data/vulndb/vulhub/ofbiz/CVE-2024-45195/README.zh-cn.md`
+- ofbiz / CVE-2024-45507 （CVE: CVE-2024-45507） -> `data/vulndb/vulhub/ofbiz/CVE-2024-45507/README.md`
+- ofbiz / CVE-2024-45507 （CVE: CVE-2024-45507） -> `data/vulndb/vulhub/ofbiz/CVE-2024-45507/README.zh-cn.md`
+- openfire / CVE-2023-32315 （CVE: CVE-2023-32315, CVE-2008-6508） -> `data/vulndb/vulhub/openfire/CVE-2023-32315/README.md`
+- openfire / CVE-2023-32315 （CVE: CVE-2023-32315, CVE-2008-6508） -> `data/vulndb/vulhub/openfire/CVE-2023-32315/README.zh-cn.md`
+- opensmtpd / CVE-2020-7247 （CVE: CVE-2020-7247） -> `data/vulndb/vulhub/opensmtpd/CVE-2020-7247/README.md`
+- opensmtpd / CVE-2020-7247 （CVE: CVE-2020-7247） -> `data/vulndb/vulhub/opensmtpd/CVE-2020-7247/README.zh-cn.md`
+- openssh / CVE-2018-15473 （CVE: CVE-2018-15473） -> `data/vulndb/vulhub/openssh/CVE-2018-15473/README.md`
+- openssh / CVE-2018-15473 （CVE: CVE-2018-15473） -> `data/vulndb/vulhub/openssh/CVE-2018-15473/README.zh-cn.md`
+- openssl / CVE-2014-0160 （CVE: CVE-2014-0160） -> `data/vulndb/vulhub/openssl/CVE-2014-0160/README.md`
+- openssl / CVE-2014-0160 （CVE: CVE-2014-0160） -> `data/vulndb/vulhub/openssl/CVE-2014-0160/README.zh-cn.md`
+- openssl / CVE-2022-0778 （CVE: CVE-2022-0778） -> `data/vulndb/vulhub/openssl/CVE-2022-0778/README.md`
+- openssl / CVE-2022-0778 （CVE: CVE-2022-0778） -> `data/vulndb/vulhub/openssl/CVE-2022-0778/README.zh-cn.md`
+- openssl / heartbleed （CVE: CVE-2014-0160） -> `data/vulndb/vulhub/openssl/heartbleed/README.md`
+- opentsdb / CVE-2020-35476 （CVE: CVE-2020-35476） -> `data/vulndb/vulhub/opentsdb/CVE-2020-35476/README.md`
+- opentsdb / CVE-2020-35476 （CVE: CVE-2020-35476） -> `data/vulndb/vulhub/opentsdb/CVE-2020-35476/README.zh-cn.md`
+- opentsdb / CVE-2023-25826 （CVE: CVE-2023-25826, CVE-2020-35476） -> `data/vulndb/vulhub/opentsdb/CVE-2023-25826/README.md`
+- opentsdb / CVE-2023-25826 （CVE: CVE-2023-25826） -> `data/vulndb/vulhub/opentsdb/CVE-2023-25826/README.zh-cn.md`
+- pdfjs / CVE-2024-4367 （CVE: CVE-2024-4367） -> `data/vulndb/vulhub/pdfjs/CVE-2024-4367/README.md`
+- pdfjs / CVE-2024-4367 （CVE: CVE-2024-4367） -> `data/vulndb/vulhub/pdfjs/CVE-2024-4367/README.zh-cn.md`
+- pgadmin / CVE-2022-4223 （CVE: CVE-2022-4223） -> `data/vulndb/vulhub/pgadmin/CVE-2022-4223/README.md`
+- pgadmin / CVE-2022-4223 （CVE: CVE-2022-4223） -> `data/vulndb/vulhub/pgadmin/CVE-2022-4223/README.zh-cn.md`
+- pgadmin / CVE-2023-5002 （CVE: CVE-2023-5002, CVE-2022-4223） -> `data/vulndb/vulhub/pgadmin/CVE-2023-5002/README.md`
+- pgadmin / CVE-2023-5002 （CVE: CVE-2023-5002, CVE-2022-4223） -> `data/vulndb/vulhub/pgadmin/CVE-2023-5002/README.zh-cn.md`
+- pgadmin / CVE-2025-13780 （CVE: CVE-2025-13780） -> `data/vulndb/vulhub/pgadmin/CVE-2025-13780/README.md`
+- pgadmin / CVE-2025-13780 （CVE: CVE-2025-13780） -> `data/vulndb/vulhub/pgadmin/CVE-2025-13780/README.zh-cn.md`
+- pgadmin / CVE-2025-2945 （CVE: CVE-2025-2945） -> `data/vulndb/vulhub/pgadmin/CVE-2025-2945/README.md`
+- pgadmin / CVE-2025-2945 （CVE: CVE-2025-2945） -> `data/vulndb/vulhub/pgadmin/CVE-2025-2945/README.zh-cn.md`
+- php / 8.1-backdoor  -> `data/vulndb/vulhub/php/8.1-backdoor/README.md`
+- php / 8.1-backdoor  -> `data/vulndb/vulhub/php/8.1-backdoor/README.zh-cn.md`
+- php / CVE-2012-1823 （CVE: CVE-2012-1823, CVE-2012-2311） -> `data/vulndb/vulhub/php/CVE-2012-1823/README.md`
+- php / CVE-2012-1823 （CVE: CVE-2012-1823, CVE-2012-2311） -> `data/vulndb/vulhub/php/CVE-2012-1823/README.zh-cn.md`
+- php / CVE-2018-19518 （CVE: CVE-2018-19518） -> `data/vulndb/vulhub/php/CVE-2018-19518/README.md`
+- php / CVE-2018-19518 （CVE: CVE-2018-19518） -> `data/vulndb/vulhub/php/CVE-2018-19518/README.zh-cn.md`
+- php / CVE-2019-11043 （CVE: CVE-2019-11043） -> `data/vulndb/vulhub/php/CVE-2019-11043/README.md`
+- php / CVE-2019-11043 （CVE: CVE-2019-11043） -> `data/vulndb/vulhub/php/CVE-2019-11043/README.zh-cn.md`
+- php / CVE-2024-2961 （CVE: CVE-2024-2961） -> `data/vulndb/vulhub/php/CVE-2024-2961/README.md`
+- php / CVE-2024-2961 （CVE: CVE-2024-2961） -> `data/vulndb/vulhub/php/CVE-2024-2961/README.zh-cn.md`
+- php / fpm  -> `data/vulndb/vulhub/php/fpm/README.md`
+- php / fpm  -> `data/vulndb/vulhub/php/fpm/README.zh-cn.md`
+- php / inclusion  -> `data/vulndb/vulhub/php/inclusion/README.md`
+- php / inclusion  -> `data/vulndb/vulhub/php/inclusion/README.zh-cn.md`
+- php / php_xxe  -> `data/vulndb/vulhub/php/php_xxe/README.md`
+- php / php_xxe  -> `data/vulndb/vulhub/php/php_xxe/README.zh-cn.md`
+- php / xdebug-rce  -> `data/vulndb/vulhub/php/xdebug-rce/README.md`
+- php / xdebug-rce  -> `data/vulndb/vulhub/php/xdebug-rce/README.zh-cn.md`
+- phpmailer / CVE-2017-5223 （CVE: CVE-2017-5223） -> `data/vulndb/vulhub/phpmailer/CVE-2017-5223/README.md`
+- phpmailer / CVE-2017-5223 （CVE: CVE-2017-5223） -> `data/vulndb/vulhub/phpmailer/CVE-2017-5223/README.zh-cn.md`
+- phpmyadmin / CVE-2016-5734 （CVE: CVE-2016-5734） -> `data/vulndb/vulhub/phpmyadmin/CVE-2016-5734/README.md`
+- phpmyadmin / CVE-2016-5734 （CVE: CVE-2016-5734） -> `data/vulndb/vulhub/phpmyadmin/CVE-2016-5734/README.zh-cn.md`
+- phpmyadmin / CVE-2018-12613 （CVE: CVE-2018-12613） -> `data/vulndb/vulhub/phpmyadmin/CVE-2018-12613/README.md`
+- phpmyadmin / CVE-2018-12613 （CVE: CVE-2018-12613） -> `data/vulndb/vulhub/phpmyadmin/CVE-2018-12613/README.zh-cn.md`
+- phpmyadmin / WooYun-2016-199433  -> `data/vulndb/vulhub/phpmyadmin/WooYun-2016-199433/README.md`
+- phpmyadmin / WooYun-2016-199433  -> `data/vulndb/vulhub/phpmyadmin/WooYun-2016-199433/README.zh-cn.md`
+- phpunit / CVE-2017-9841 （CVE: CVE-2017-9841） -> `data/vulndb/vulhub/phpunit/CVE-2017-9841/README.md`
+- phpunit / CVE-2017-9841 （CVE: CVE-2017-9841） -> `data/vulndb/vulhub/phpunit/CVE-2017-9841/README.zh-cn.md`
+- polkit / CVE-2021-4034 （CVE: CVE-2021-4034） -> `data/vulndb/vulhub/polkit/CVE-2021-4034/README.md`
+- polkit / CVE-2021-4034 （CVE: CVE-2021-4034） -> `data/vulndb/vulhub/polkit/CVE-2021-4034/README.zh-cn.md`
+- postgres / CVE-2018-1058 （CVE: CVE-2018-1058） -> `data/vulndb/vulhub/postgres/CVE-2018-1058/README.md`
+- postgres / CVE-2018-1058 （CVE: CVE-2018-1058） -> `data/vulndb/vulhub/postgres/CVE-2018-1058/README.zh-cn.md`
+- postgres / CVE-2019-9193 （CVE: CVE-2019-9193） -> `data/vulndb/vulhub/postgres/CVE-2019-9193/README.md`
+- postgres / CVE-2019-9193 （CVE: CVE-2019-9193） -> `data/vulndb/vulhub/postgres/CVE-2019-9193/README.zh-cn.md`
+- python / CVE-2024-23334 （CVE: CVE-2024-23334） -> `data/vulndb/vulhub/python/CVE-2024-23334/README.md`
+- python / CVE-2024-23334 （CVE: CVE-2024-23334） -> `data/vulndb/vulhub/python/CVE-2024-23334/README.zh-cn.md`
+- python / PIL-CVE-2017-8291 （CVE: CVE-2017-8291） -> `data/vulndb/vulhub/python/PIL-CVE-2017-8291/README.md`
+- python / PIL-CVE-2017-8291 （CVE: CVE-2017-8291） -> `data/vulndb/vulhub/python/PIL-CVE-2017-8291/README.zh-cn.md`
+- python / PIL-CVE-2018-16509 （CVE: CVE-2018-16509） -> `data/vulndb/vulhub/python/PIL-CVE-2018-16509/README.md`
+- python / PIL-CVE-2018-16509 （CVE: CVE-2018-16509） -> `data/vulndb/vulhub/python/PIL-CVE-2018-16509/README.zh-cn.md`
+- python / unpickle  -> `data/vulndb/vulhub/python/unpickle/README.md`
+- python / unpickle  -> `data/vulndb/vulhub/python/unpickle/README.zh-cn.md`
+- rails / CVE-2018-3760 （CVE: CVE-2018-3760） -> `data/vulndb/vulhub/rails/CVE-2018-3760/README.md`
+- rails / CVE-2018-3760 （CVE: CVE-2018-3760） -> `data/vulndb/vulhub/rails/CVE-2018-3760/README.zh-cn.md`
+- rails / CVE-2019-5418 （CVE: CVE-2019-5418） -> `data/vulndb/vulhub/rails/CVE-2019-5418/README.md`
+- rails / CVE-2019-5418 （CVE: CVE-2019-5418） -> `data/vulndb/vulhub/rails/CVE-2019-5418/README.zh-cn.md`
+- react / CVE-2025-55182 （CVE: CVE-2025-55182, CVE-2025-66478） -> `data/vulndb/vulhub/react/CVE-2025-55182/README.md`
+- react / CVE-2025-55182 （CVE: CVE-2025-55182, CVE-2025-66478） -> `data/vulndb/vulhub/react/CVE-2025-55182/README.zh-cn.md`
+- redis / 4-unacc  -> `data/vulndb/vulhub/redis/4-unacc/README.md`
+- redis / 4-unacc  -> `data/vulndb/vulhub/redis/4-unacc/README.zh-cn.md`
+- redis / CVE-2022-0543 （CVE: CVE-2022-0543） -> `data/vulndb/vulhub/redis/CVE-2022-0543/README.md`
+- redis / CVE-2022-0543 （CVE: CVE-2022-0543） -> `data/vulndb/vulhub/redis/CVE-2022-0543/README.zh-cn.md`
+- rocketchat / CVE-2021-22911 （CVE: CVE-2021-22911） -> `data/vulndb/vulhub/rocketchat/CVE-2021-22911/README.md`
+- rocketchat / CVE-2021-22911 （CVE: CVE-2021-22911） -> `data/vulndb/vulhub/rocketchat/CVE-2021-22911/README.zh-cn.md`
+- rocketmq / CVE-2023-33246 （CVE: CVE-2023-33246） -> `data/vulndb/vulhub/rocketmq/CVE-2023-33246/README.md`
+- rocketmq / CVE-2023-33246 （CVE: CVE-2023-33246） -> `data/vulndb/vulhub/rocketmq/CVE-2023-33246/README.zh-cn.md`
+- rocketmq / CVE-2023-37582 （CVE: CVE-2023-37582, CVE-2023-33246） -> `data/vulndb/vulhub/rocketmq/CVE-2023-37582/README.md`
+- rocketmq / CVE-2023-37582 （CVE: CVE-2023-37582, CVE-2023-33246） -> `data/vulndb/vulhub/rocketmq/CVE-2023-37582/README.zh-cn.md`
+- rsync / common  -> `data/vulndb/vulhub/rsync/common/README.md`
+- rsync / common  -> `data/vulndb/vulhub/rsync/common/README.zh-cn.md`
+- ruby / CVE-2017-17405 （CVE: CVE-2017-17405） -> `data/vulndb/vulhub/ruby/CVE-2017-17405/README.md`
+- ruby / CVE-2017-17405 （CVE: CVE-2017-17405） -> `data/vulndb/vulhub/ruby/CVE-2017-17405/README.zh-cn.md`
+- saltstack / CVE-2020-11651 （CVE: CVE-2020-11651, CVE-2020-11652） -> `data/vulndb/vulhub/saltstack/CVE-2020-11651/README.md`
+- saltstack / CVE-2020-11651 （CVE: CVE-2020-11651, CVE-2020-11652） -> `data/vulndb/vulhub/saltstack/CVE-2020-11651/README.zh-cn.md`
+- saltstack / CVE-2020-11652 （CVE: CVE-2020-11652, CVE-2020-11651） -> `data/vulndb/vulhub/saltstack/CVE-2020-11652/README.md`
+- saltstack / CVE-2020-11652 （CVE: CVE-2020-11652, CVE-2020-11651） -> `data/vulndb/vulhub/saltstack/CVE-2020-11652/README.zh-cn.md`
+- saltstack / CVE-2020-16846 （CVE: CVE-2020-16846, CVE-2020-25592） -> `data/vulndb/vulhub/saltstack/CVE-2020-16846/README.md`
+- saltstack / CVE-2020-16846 （CVE: CVE-2020-16846） -> `data/vulndb/vulhub/saltstack/CVE-2020-16846/README.zh-cn.md`
+- samba / CVE-2017-7494 （CVE: CVE-2017-7494） -> `data/vulndb/vulhub/samba/CVE-2017-7494/README.md`
+- samba / CVE-2017-7494 （CVE: CVE-2017-7494） -> `data/vulndb/vulhub/samba/CVE-2017-7494/README.zh-cn.md`
+- scrapy / scrapyd-unacc  -> `data/vulndb/vulhub/scrapy/scrapyd-unacc/README.md`
+- scrapy / scrapyd-unacc  -> `data/vulndb/vulhub/scrapy/scrapyd-unacc/README.zh-cn.md`
+- shiro / CVE-2010-3863 （CVE: CVE-2010-3863） -> `data/vulndb/vulhub/shiro/CVE-2010-3863/README.md`
+- shiro / CVE-2010-3863 （CVE: CVE-2010-3863） -> `data/vulndb/vulhub/shiro/CVE-2010-3863/README.zh-cn.md`
+- shiro / CVE-2016-4437 （CVE: CVE-2016-4437） -> `data/vulndb/vulhub/shiro/CVE-2016-4437/README.md`
+- shiro / CVE-2016-4437 （CVE: CVE-2016-4437） -> `data/vulndb/vulhub/shiro/CVE-2016-4437/README.zh-cn.md`
+- shiro / CVE-2020-1957 （CVE: CVE-2020-1957） -> `data/vulndb/vulhub/shiro/CVE-2020-1957/README.md`
+- shiro / CVE-2020-1957 （CVE: CVE-2020-1957） -> `data/vulndb/vulhub/shiro/CVE-2020-1957/README.zh-cn.md`
+- showdoc / 3.2.5-sqli  -> `data/vulndb/vulhub/showdoc/3.2.5-sqli/README.md`
+- showdoc / 3.2.5-sqli  -> `data/vulndb/vulhub/showdoc/3.2.5-sqli/README.zh-cn.md`
+- showdoc / CNVD-2020-26585  -> `data/vulndb/vulhub/showdoc/CNVD-2020-26585/README.md`
+- showdoc / CNVD-2020-26585  -> `data/vulndb/vulhub/showdoc/CNVD-2020-26585/README.zh-cn.md`
+- skywalking / 8.3.0-sqli  -> `data/vulndb/vulhub/skywalking/8.3.0-sqli/README.md`
+- skywalking / 8.3.0-sqli  -> `data/vulndb/vulhub/skywalking/8.3.0-sqli/README.zh-cn.md`
+- solr / CVE-2017-12629-RCE （CVE: CVE-2017-12629） -> `data/vulndb/vulhub/solr/CVE-2017-12629-RCE/README.md`
+- solr / CVE-2017-12629-RCE （CVE: CVE-2017-12629） -> `data/vulndb/vulhub/solr/CVE-2017-12629-RCE/README.zh-cn.md`
+- solr / CVE-2017-12629-XXE （CVE: CVE-2017-12629） -> `data/vulndb/vulhub/solr/CVE-2017-12629-XXE/README.md`
+- solr / CVE-2017-12629-XXE （CVE: CVE-2017-12629） -> `data/vulndb/vulhub/solr/CVE-2017-12629-XXE/README.zh-cn.md`
+- solr / CVE-2019-0193 （CVE: CVE-2019-0193） -> `data/vulndb/vulhub/solr/CVE-2019-0193/README.md`
+- solr / CVE-2019-0193 （CVE: CVE-2019-0193） -> `data/vulndb/vulhub/solr/CVE-2019-0193/README.zh-cn.md`
+- solr / CVE-2019-17558 （CVE: CVE-2019-17558） -> `data/vulndb/vulhub/solr/CVE-2019-17558/README.md`
+- solr / CVE-2019-17558 （CVE: CVE-2019-17558） -> `data/vulndb/vulhub/solr/CVE-2019-17558/README.zh-cn.md`
+- solr / Remote-Streaming-Fileread  -> `data/vulndb/vulhub/solr/Remote-Streaming-Fileread/README.md`
+- solr / Remote-Streaming-Fileread  -> `data/vulndb/vulhub/solr/Remote-Streaming-Fileread/README.zh-cn.md`
+- spark / unacc  -> `data/vulndb/vulhub/spark/unacc/README.md`
+- spark / unacc  -> `data/vulndb/vulhub/spark/unacc/README.zh-cn.md`
+- spring / CVE-2016-4977 （CVE: CVE-2016-4977） -> `data/vulndb/vulhub/spring/CVE-2016-4977/README.md`
+- spring / CVE-2016-4977 （CVE: CVE-2016-4977） -> `data/vulndb/vulhub/spring/CVE-2016-4977/README.zh-cn.md`
+- spring / CVE-2017-4971 （CVE: CVE-2017-4971） -> `data/vulndb/vulhub/spring/CVE-2017-4971/README.md`
+- spring / CVE-2017-4971 （CVE: CVE-2017-4971） -> `data/vulndb/vulhub/spring/CVE-2017-4971/README.zh-cn.md`
+- spring / CVE-2017-8046 （CVE: CVE-2017-8046） -> `data/vulndb/vulhub/spring/CVE-2017-8046/README.md`
+- spring / CVE-2017-8046 （CVE: CVE-2017-8046） -> `data/vulndb/vulhub/spring/CVE-2017-8046/README.zh-cn.md`
+- spring / CVE-2018-1270 （CVE: CVE-2018-1270） -> `data/vulndb/vulhub/spring/CVE-2018-1270/README.md`
+- spring / CVE-2018-1270 （CVE: CVE-2018-1270） -> `data/vulndb/vulhub/spring/CVE-2018-1270/README.zh-cn.md`
+- spring / CVE-2018-1273 （CVE: CVE-2018-1273） -> `data/vulndb/vulhub/spring/CVE-2018-1273/README.md`
+- spring / CVE-2018-1273 （CVE: CVE-2018-1273） -> `data/vulndb/vulhub/spring/CVE-2018-1273/README.zh-cn.md`
+- spring / CVE-2022-22947 （CVE: CVE-2022-22947） -> `data/vulndb/vulhub/spring/CVE-2022-22947/README.md`
+- spring / CVE-2022-22947 （CVE: CVE-2022-22947） -> `data/vulndb/vulhub/spring/CVE-2022-22947/README.zh-cn.md`
+- spring / CVE-2022-22963 （CVE: CVE-2022-22963） -> `data/vulndb/vulhub/spring/CVE-2022-22963/README.md`
+- spring / CVE-2022-22963 （CVE: CVE-2022-22963） -> `data/vulndb/vulhub/spring/CVE-2022-22963/README.zh-cn.md`
+- spring / CVE-2022-22965 （CVE: CVE-2022-22965） -> `data/vulndb/vulhub/spring/CVE-2022-22965/README.md`
+- spring / CVE-2022-22965 （CVE: CVE-2022-22965） -> `data/vulndb/vulhub/spring/CVE-2022-22965/README.zh-cn.md`
+- spring / CVE-2022-22978 （CVE: CVE-2022-22978） -> `data/vulndb/vulhub/spring/CVE-2022-22978/README.md`
+- spring / CVE-2022-22978 （CVE: CVE-2022-22978） -> `data/vulndb/vulhub/spring/CVE-2022-22978/README.zh-cn.md`
+- struts2  -> `data/vulndb/vulhub/struts2/README.md`
+- struts2 / s2-001  -> `data/vulndb/vulhub/struts2/s2-001/README.md`
+- struts2 / s2-001  -> `data/vulndb/vulhub/struts2/s2-001/README.zh-cn.md`
+- struts2 / s2-005  -> `data/vulndb/vulhub/struts2/s2-005/README.md`
+- struts2 / s2-005  -> `data/vulndb/vulhub/struts2/s2-005/README.zh-cn.md`
+- struts2 / s2-007  -> `data/vulndb/vulhub/struts2/s2-007/README.md`
+- struts2 / s2-007  -> `data/vulndb/vulhub/struts2/s2-007/README.zh-cn.md`
+- struts2 / s2-008  -> `data/vulndb/vulhub/struts2/s2-008/README.md`
+- struts2 / s2-008  -> `data/vulndb/vulhub/struts2/s2-008/README.zh-cn.md`
+- struts2 / s2-009  -> `data/vulndb/vulhub/struts2/s2-009/README.md`
+- struts2 / s2-009  -> `data/vulndb/vulhub/struts2/s2-009/README.zh-cn.md`
+- struts2 / s2-012  -> `data/vulndb/vulhub/struts2/s2-012/README.md`
+- struts2 / s2-012  -> `data/vulndb/vulhub/struts2/s2-012/README.zh-cn.md`
+- struts2 / s2-013  -> `data/vulndb/vulhub/struts2/s2-013/README.md`
+- struts2 / s2-013  -> `data/vulndb/vulhub/struts2/s2-013/README.zh-cn.md`
+- struts2 / s2-015  -> `data/vulndb/vulhub/struts2/s2-015/README.md`
+- struts2 / s2-015  -> `data/vulndb/vulhub/struts2/s2-015/README.zh-cn.md`
+- struts2 / s2-016  -> `data/vulndb/vulhub/struts2/s2-016/README.md`
+- struts2 / s2-016  -> `data/vulndb/vulhub/struts2/s2-016/README.zh-cn.md`
+- struts2 / s2-032 （CVE: CVE-2016-3081） -> `data/vulndb/vulhub/struts2/s2-032/README.md`
+- struts2 / s2-032 （CVE: CVE-2016-3081） -> `data/vulndb/vulhub/struts2/s2-032/README.zh-cn.md`
+- struts2 / s2-045 （CVE: CVE-2017-5638） -> `data/vulndb/vulhub/struts2/s2-045/README.md`
+- struts2 / s2-045 （CVE: CVE-2017-5638） -> `data/vulndb/vulhub/struts2/s2-045/README.zh-cn.md`
+- struts2 / s2-046 （CVE: CVE-2017-5638） -> `data/vulndb/vulhub/struts2/s2-046/README.md`
+- struts2 / s2-046 （CVE: CVE-2017-5638） -> `data/vulndb/vulhub/struts2/s2-046/README.zh-cn.md`
+- struts2 / s2-048  -> `data/vulndb/vulhub/struts2/s2-048/README.md`
+- struts2 / s2-048  -> `data/vulndb/vulhub/struts2/s2-048/README.zh-cn.md`
+- struts2 / s2-052  -> `data/vulndb/vulhub/struts2/s2-052/README.md`
+- struts2 / s2-052  -> `data/vulndb/vulhub/struts2/s2-052/README.zh-cn.md`
+- struts2 / s2-053  -> `data/vulndb/vulhub/struts2/s2-053/README.md`
+- struts2 / s2-053  -> `data/vulndb/vulhub/struts2/s2-053/README.zh-cn.md`
+- struts2 / s2-057 （CVE: CVE-2018-11776） -> `data/vulndb/vulhub/struts2/s2-057/README.md`
+- struts2 / s2-057 （CVE: CVE-2018-11776） -> `data/vulndb/vulhub/struts2/s2-057/README.zh-cn.md`
+- struts2 / s2-059 （CVE: CVE-2019-0230, CVE-2018-11776） -> `data/vulndb/vulhub/struts2/s2-059/README.md`
+- struts2 / s2-059 （CVE: CVE-2019-0230, CVE-2018-11776） -> `data/vulndb/vulhub/struts2/s2-059/README.zh-cn.md`
+- struts2 / s2-061 （CVE: CVE-2020-17530） -> `data/vulndb/vulhub/struts2/s2-061/README.md`
+- struts2 / s2-061 （CVE: CVE-2020-17530） -> `data/vulndb/vulhub/struts2/s2-061/README.zh-cn.md`
+- struts2 / s2-066 （CVE: CVE-2023-50164） -> `data/vulndb/vulhub/struts2/s2-066/README.md`
+- struts2 / s2-066 （CVE: CVE-2023-50164） -> `data/vulndb/vulhub/struts2/s2-066/README.zh-cn.md`
+- struts2 / s2-067 （CVE: CVE-2024-53677） -> `data/vulndb/vulhub/struts2/s2-067/README.md`
+- struts2 / s2-067 （CVE: CVE-2024-53677） -> `data/vulndb/vulhub/struts2/s2-067/README.zh-cn.md`
+- superset / CVE-2023-27524 （CVE: CVE-2023-27524, CVE-2023-37941） -> `data/vulndb/vulhub/superset/CVE-2023-27524/README.md`
+- superset / CVE-2023-27524 （CVE: CVE-2023-27524, CVE-2023-37941） -> `data/vulndb/vulhub/superset/CVE-2023-27524/README.zh-cn.md`
+- superset / CVE-2023-37941 （CVE: CVE-2023-37941, CVE-2023-27524） -> `data/vulndb/vulhub/superset/CVE-2023-37941/README.md`
+- superset / CVE-2023-37941 （CVE: CVE-2023-37941, CVE-2023-27524） -> `data/vulndb/vulhub/superset/CVE-2023-37941/README.zh-cn.md`
+- supervisor / CVE-2017-11610 （CVE: CVE-2017-11610） -> `data/vulndb/vulhub/supervisor/CVE-2017-11610/README.md`
+- supervisor / CVE-2017-11610 （CVE: CVE-2017-11610） -> `data/vulndb/vulhub/supervisor/CVE-2017-11610/README.zh-cn.md`
+- teamcity / CVE-2023-42793 （CVE: CVE-2023-42793） -> `data/vulndb/vulhub/teamcity/CVE-2023-42793/README.md`
+- teamcity / CVE-2023-42793 （CVE: CVE-2023-42793） -> `data/vulndb/vulhub/teamcity/CVE-2023-42793/README.zh-cn.md`
+- thinkphp / 2-rce  -> `data/vulndb/vulhub/thinkphp/2-rce/README.md`
+- thinkphp / 2-rce  -> `data/vulndb/vulhub/thinkphp/2-rce/README.zh-cn.md`
+- thinkphp / 5-rce  -> `data/vulndb/vulhub/thinkphp/5-rce/README.md`
+- thinkphp / 5-rce  -> `data/vulndb/vulhub/thinkphp/5-rce/README.zh-cn.md`
+- thinkphp / 5.0.23-rce  -> `data/vulndb/vulhub/thinkphp/5.0.23-rce/README.md`
+- thinkphp / 5.0.23-rce  -> `data/vulndb/vulhub/thinkphp/5.0.23-rce/README.zh-cn.md`
+- thinkphp / in-sqlinjection  -> `data/vulndb/vulhub/thinkphp/in-sqlinjection/README.md`
+- thinkphp / in-sqlinjection  -> `data/vulndb/vulhub/thinkphp/in-sqlinjection/README.zh-cn.md`
+- thinkphp / lang-rce  -> `data/vulndb/vulhub/thinkphp/lang-rce/README.md`
+- thinkphp / lang-rce  -> `data/vulndb/vulhub/thinkphp/lang-rce/README.zh-cn.md`
+- tikiwiki / CVE-2020-15906 （CVE: CVE-2020-15906, CVE-2021-26119） -> `data/vulndb/vulhub/tikiwiki/CVE-2020-15906/README.md`
+- tikiwiki / CVE-2020-15906 （CVE: CVE-2020-15906, CVE-2021-26119） -> `data/vulndb/vulhub/tikiwiki/CVE-2020-15906/README.zh-cn.md`
+- tomcat / CVE-2017-12615 （CVE: CVE-2017-12615） -> `data/vulndb/vulhub/tomcat/CVE-2017-12615/README.md`
+- tomcat / CVE-2017-12615 （CVE: CVE-2017-12615） -> `data/vulndb/vulhub/tomcat/CVE-2017-12615/README.zh-cn.md`
+- tomcat / CVE-2020-1938 （CVE: CVE-2020-1938） -> `data/vulndb/vulhub/tomcat/CVE-2020-1938/README.md`
+- tomcat / CVE-2020-1938 （CVE: CVE-2020-1938） -> `data/vulndb/vulhub/tomcat/CVE-2020-1938/README.zh-cn.md`
+- tomcat / CVE-2025-24813 （CVE: CVE-2025-24813） -> `data/vulndb/vulhub/tomcat/CVE-2025-24813/README.md`
+- tomcat / CVE-2025-24813 （CVE: CVE-2025-24813） -> `data/vulndb/vulhub/tomcat/CVE-2025-24813/README.zh-cn.md`
+- tomcat / tomcat8  -> `data/vulndb/vulhub/tomcat/tomcat8/README.md`
+- tomcat / tomcat8  -> `data/vulndb/vulhub/tomcat/tomcat8/README.zh-cn.md`
+- unomi / CVE-2020-13942 （CVE: CVE-2020-13942） -> `data/vulndb/vulhub/unomi/CVE-2020-13942/README.md`
+- unomi / CVE-2020-13942 （CVE: CVE-2020-13942） -> `data/vulndb/vulhub/unomi/CVE-2020-13942/README.zh-cn.md`
+- uwsgi / CVE-2018-7490 （CVE: CVE-2018-7490） -> `data/vulndb/vulhub/uwsgi/CVE-2018-7490/README.md`
+- uwsgi / CVE-2018-7490 （CVE: CVE-2018-7490） -> `data/vulndb/vulhub/uwsgi/CVE-2018-7490/README.zh-cn.md`
+- uwsgi / unacc  -> `data/vulndb/vulhub/uwsgi/unacc/README.md`
+- uwsgi / unacc  -> `data/vulndb/vulhub/uwsgi/unacc/README.zh-cn.md`
+- v2board / 1.6-privilege-escalation  -> `data/vulndb/vulhub/v2board/1.6-privilege-escalation/README.md`
+- v2board / 1.6-privilege-escalation  -> `data/vulndb/vulhub/v2board/1.6-privilege-escalation/README.zh-cn.md`
+- vite / CNVD-2022-44615  -> `data/vulndb/vulhub/vite/CNVD-2022-44615/README.md`
+- vite / CNVD-2022-44615  -> `data/vulndb/vulhub/vite/CNVD-2022-44615/README.zh-cn.md`
+- vite / CVE-2025-30208 （CVE: CVE-2025-30208） -> `data/vulndb/vulhub/vite/CVE-2025-30208/README.md`
+- vite / CVE-2025-30208 （CVE: CVE-2025-30208） -> `data/vulndb/vulhub/vite/CVE-2025-30208/README.zh-cn.md`
+- weblogic / CVE-2017-10271 （CVE: CVE-2017-10271） -> `data/vulndb/vulhub/weblogic/CVE-2017-10271/README.md`
+- weblogic / CVE-2017-10271 （CVE: CVE-2017-10271） -> `data/vulndb/vulhub/weblogic/CVE-2017-10271/README.zh-cn.md`
+- weblogic / CVE-2018-2628 （CVE: CVE-2018-2628） -> `data/vulndb/vulhub/weblogic/CVE-2018-2628/README.md`
+- weblogic / CVE-2018-2628 （CVE: CVE-2018-2628） -> `data/vulndb/vulhub/weblogic/CVE-2018-2628/README.zh-cn.md`
+- weblogic / CVE-2018-2894 （CVE: CVE-2018-2894） -> `data/vulndb/vulhub/weblogic/CVE-2018-2894/README.md`
+- weblogic / CVE-2018-2894 （CVE: CVE-2018-2894） -> `data/vulndb/vulhub/weblogic/CVE-2018-2894/README.zh-cn.md`
+- weblogic / CVE-2020-14882 （CVE: CVE-2020-14882, CVE-2020-14883, CVE-2019-2725） -> `data/vulndb/vulhub/weblogic/CVE-2020-14882/README.md`
+- weblogic / CVE-2020-14882 （CVE: CVE-2020-14882, CVE-2020-14883） -> `data/vulndb/vulhub/weblogic/CVE-2020-14882/README.zh-cn.md`
+- weblogic / CVE-2023-21839 （CVE: CVE-2023-21839） -> `data/vulndb/vulhub/weblogic/CVE-2023-21839/README.md`
+- weblogic / CVE-2023-21839 （CVE: CVE-2023-21839） -> `data/vulndb/vulhub/weblogic/CVE-2023-21839/README.zh-cn.md`
+- weblogic / ssrf  -> `data/vulndb/vulhub/weblogic/ssrf/README.md`
+- weblogic / ssrf  -> `data/vulndb/vulhub/weblogic/ssrf/README.zh-cn.md`
+- weblogic / weak_password  -> `data/vulndb/vulhub/weblogic/weak_password/README.md`
+- weblogic / weak_password  -> `data/vulndb/vulhub/weblogic/weak_password/README.zh-cn.md`
+- webmin / CVE-2019-15107 （CVE: CVE-2019-15107） -> `data/vulndb/vulhub/webmin/CVE-2019-15107/README.md`
+- webmin / CVE-2019-15107 （CVE: CVE-2019-15107） -> `data/vulndb/vulhub/webmin/CVE-2019-15107/README.zh-cn.md`
+- wordpress / pwnscriptum （CVE: CVE-2016-10033） -> `data/vulndb/vulhub/wordpress/pwnscriptum/README.md`
+- wordpress / pwnscriptum （CVE: CVE-2016-10033） -> `data/vulndb/vulhub/wordpress/pwnscriptum/README.zh-cn.md`
+- xstream / CVE-2021-21351 （CVE: CVE-2021-21351） -> `data/vulndb/vulhub/xstream/CVE-2021-21351/README.md`
+- xstream / CVE-2021-21351 （CVE: CVE-2021-21351） -> `data/vulndb/vulhub/xstream/CVE-2021-21351/README.zh-cn.md`
+- xstream / CVE-2021-29505 （CVE: CVE-2021-29505） -> `data/vulndb/vulhub/xstream/CVE-2021-29505/README.md`
+- xstream / CVE-2021-29505 （CVE: CVE-2021-29505） -> `data/vulndb/vulhub/xstream/CVE-2021-29505/README.zh-cn.md`
+- xxl-job / unacc  -> `data/vulndb/vulhub/xxl-job/unacc/README.md`
+- xxl-job / unacc  -> `data/vulndb/vulhub/xxl-job/unacc/README.zh-cn.md`
+- yapi / mongodb-inj  -> `data/vulndb/vulhub/yapi/mongodb-inj/README.md`
+- yapi / mongodb-inj  -> `data/vulndb/vulhub/yapi/mongodb-inj/README.zh-cn.md`
+- yapi / unacc  -> `data/vulndb/vulhub/yapi/unacc/README.md`
+- yapi / unacc  -> `data/vulndb/vulhub/yapi/unacc/README.zh-cn.md`
+- zabbix / CVE-2016-10134 （CVE: CVE-2016-10134） -> `data/vulndb/vulhub/zabbix/CVE-2016-10134/README.md`
+- zabbix / CVE-2016-10134 （CVE: CVE-2016-10134） -> `data/vulndb/vulhub/zabbix/CVE-2016-10134/README.zh-cn.md`
+- zabbix / CVE-2017-2824 （CVE: CVE-2017-2824） -> `data/vulndb/vulhub/zabbix/CVE-2017-2824/README.md`
+- zabbix / CVE-2017-2824 （CVE: CVE-2017-2824） -> `data/vulndb/vulhub/zabbix/CVE-2017-2824/README.zh-cn.md`
+- zabbix / CVE-2020-11800 （CVE: CVE-2020-11800, CVE-2017-2824） -> `data/vulndb/vulhub/zabbix/CVE-2020-11800/README.md`
+- zabbix / CVE-2020-11800 （CVE: CVE-2020-11800, CVE-2017-2824） -> `data/vulndb/vulhub/zabbix/CVE-2020-11800/README.zh-cn.md`

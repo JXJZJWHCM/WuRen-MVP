@@ -1,0 +1,56 @@
+# 02.GET 中 URL 参数 | Yak Program Language
+
+- 来源: https://www.yaklang.com/Yaklab/vulinbox/SSRF/02unsafe-in-get/
+- 抓取时间: 2026-02-06T07:03:07Z
+
+---
+以下是一个简化的示例代码，用于说明 GET 请求中的 URL 参数 SSRF 漏洞。该示例代码允许用户提供一个 URL 作为查询参数，然后发起 GET 请求并返回响应。
+
+### 示例代码： #
+
+```
+{
+    DefaultQuery: "url=http://www.baidu.com/",
+    Path:         "/in-get",
+    Title:        "SSRF GET 中 URL 参数",
+    Handler: func(writer http.ResponseWriter, request *http.Request) {
+        ref := request.URL.Query().Get("url")
+        var u = fmt.Sprint(ref)
+        c := utils.NewDefaultHTTPClient()
+        c.Timeout = 5 * time.Second
+        rsp, err := c.Get(u)
+        if err != nil {
+            writer.Write([]byte(err.Error()))
+            return
+        }
+        rawResponse, err := utils.HttpDumpWithBody(rsp, true)
+        if err != nil {
+            writer.Write([]byte(err.Error()))
+            return
+        }
+        writer.Write(rawResponse)
+    },
+    RiskDetected: true,
+}
+```
+
+### 攻击示例： #
+
+如果目标服务器存在 SSRF 漏洞，它将会发起对 http://127.0.0.1:8787/ssrf/flag 的 GET 请求。攻击者可以通过这种方式获取敏感信息、绕过防火墙，甚至攻击内部资源。
+
+```
+http://127.0.0.1:8787/ssrf/in-get?url=http://127.0.0.1:8787/ssrf/flag
+```
+
+### 防御措施： #
+
+要防范这种类型的漏洞，开发者需要对输入的 URL 参数进行严格的验证和过滤，限制访问内部网络资源。
+
+同时，对于发起的网络请求，需要限制请求的目标范围，以及对请求的目标进行白名单控制，避免访问恶意站点。
+
+### 靶场演示： 视频 #
+
+- 示例代码：
+- 攻击示例：
+- 防御措施：
+- 靶场演示： 视频

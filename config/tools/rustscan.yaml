@@ -1,0 +1,58 @@
+name: "rustscan"
+command: "rustscan"
+enabled: true
+short_description: "超快速端口扫描工具，使用Rust编写"
+description: |
+  Rustscan是一个用Rust编写的超快速端口扫描工具，可以快速扫描大量端口。
+
+  **主要功能：**
+  - 超快速端口扫描
+  - 可配置的扫描速度
+  - 支持Nmap脚本集成
+  - 批量扫描支持
+
+  **使用场景：**
+  - 快速端口扫描
+  - 大规模网络扫描
+  - 渗透测试信息收集
+parameters:
+  - name: "target"
+    type: "string"
+    description: "目标IP地址或主机名"
+    required: true
+    flag: "-a"
+    format: "flag"
+  - name: "ports"
+    type: "string"
+    description: "要扫描的端口（如：22,80,443或1-1000）"
+    required: false
+    flag: "-p"
+    format: "flag"
+  - name: "ulimit"
+    type: "int"
+    description: "文件描述符限制"
+    required: false
+    flag: "-u"
+    format: "flag"
+    default: 5000
+  - name: "scripts"
+    type: "bool"
+    description: "在发现的端口上运行Nmap脚本"
+    required: false
+    flag: "--scripts"
+    format: "flag"
+    default: false
+  - name: "additional_args"
+    type: "string"
+    description: |
+      额外的rustscan参数。用于传递未在参数列表中定义的rustscan选项。
+
+      **示例值：**
+      - 根据工具特性添加常用参数示例
+
+      **注意事项：**
+      - 多个参数用空格分隔
+      - 确保参数格式正确，避免命令注入
+      - 此参数会直接追加到命令末尾
+    required: false
+    format: "positional"

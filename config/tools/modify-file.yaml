@@ -1,0 +1,76 @@
+name: "modify-file"
+command: "python3"
+args:
+  - "-c"
+  - |
+    import sys
+    from pathlib import Path
+
+    if len(sys.argv) < 3:
+        sys.stderr.write("Usage: modify-file <filename> <content> [append]\n")
+        sys.exit(1)
+
+    filename = sys.argv[1]
+    content = sys.argv[2]
+    append_arg = sys.argv[3].lower() if len(sys.argv) > 3 else "false"
+    append = append_arg in ("1", "true", "yes", "on")
+
+    path = Path(filename)
+    if not path.is_absolute():
+        path = Path.cwd() / path
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    mode = "a" if append else "w"
+    with path.open(mode, encoding="utf-8") as f:
+        f.write(content)
+
+    action = "追加" if append else "覆盖"
+    print(f"{action}写入完成: {path}")
+enabled: true
+short_description: "修改文件工具"
+description: |
+  修改服务器上的现有文件。
+
+  **主要功能：**
+  - 修改文件
+  - 追加内容
+  - 覆盖内容
+
+  **使用场景：**
+  - 文件编辑
+  - 内容追加
+  - 配置修改
+parameters:
+  - name: "filename"
+    type: "string"
+    description: "要修改的文件名"
+    required: true
+    position: 0
+    format: "positional"
+  - name: "content"
+    type: "string"
+    description: "要写入或追加的内容"
+    required: true
+    position: 1
+    format: "positional"
+  - name: "append"
+    type: "bool"
+    description: "是否追加（true）或覆盖（false）"
+    required: false
+    default: false
+    position: 2
+    format: "positional"
+  - name: "additional_args"
+    type: "string"
+    description: |
+      额外的modify-file参数。用于传递未在参数列表中定义的modify-file选项。
+
+      **示例值：**
+      - 根据工具特性添加常用参数示例
+
+      **注意事项：**
+      - 多个参数用空格分隔
+      - 确保参数格式正确，避免命令注入
+      - 此参数会直接追加到命令末尾
+    required: false
+    format: "positional"

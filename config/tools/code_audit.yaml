@@ -1,0 +1,42 @@
+name: "code_audit"
+command: "python"
+enabled: true
+short_description: "代码审计：对目录/文件做快速规则扫描（泄露、注入、危险用法）"
+description: |
+  对指定目录或文件进行快速静态规则扫描，输出风险点清单（含定位与修复建议）。
+  适合在拿到源码、配置仓库或可疑脚本后进行第一轮快速排查。
+
+  **注意：**
+  - 这是规则扫描，不等同于完整 SAST
+  - 结果需要人工复核（避免误报/漏报）
+args:
+  - "scripts/code_audit.py"
+parameters:
+  - name: "path"
+    type: "string"
+    description: "要审计的目录或文件路径"
+    required: true
+    flag: "--path"
+    format: "flag"
+  - name: "min_severity"
+    type: "string"
+    description: "最小输出等级：low/medium/high/critical"
+    required: false
+    flag: "--min-severity"
+    format: "flag"
+    default: "low"
+  - name: "format"
+    type: "string"
+    description: "输出格式：md/json"
+    required: false
+    flag: "--format"
+    format: "flag"
+    default: "md"
+  - name: "max_findings"
+    type: "int"
+    description: "最多输出发现条目数量"
+    required: false
+    flag: "--max-findings"
+    format: "flag"
+    default: 3000
+

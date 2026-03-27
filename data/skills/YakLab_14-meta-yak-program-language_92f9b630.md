@@ -1,0 +1,51 @@
+# 14.完全开放重定向（meta） | Yak Program Language
+
+- 来源: https://yaklang.com/en/Yaklab/vulinbox/SSRF/14unsafe-meta-case2
+- 抓取时间: 2026-02-06T07:02:30Z
+
+---
+完全开放重定向是一种Web应用程序中的安全漏洞，攻击者可以利用它将用户重定向到任意URL，该漏洞通常出现在未正确验证或过滤用户提供的重定向目标的情况下。
+
+### 示例代码： #
+
+以下是一个使用HTML的meta标签实现完全开放重定向的示例代码：
+
+```
+{
+    DefaultQuery: "redirect=/redirect/main",
+    Path:         "/redirect/meta/case2",
+    Title:        "完全开放重定向（meta）",
+    Handler: func(writer http.ResponseWriter, request *http.Request) {
+        var u = LoadFromGetParams(request, "redirect")
+        DefaultRenderEx(true, `<!DOCTYPE html>
+<html>
+ <head>
+   <title>Meta Refresh Example</title>
+   <meta http-equiv="refresh" content="0;url={{ .url }}">
+ </head>
+</html>
+`, writer, request, map[string]any{
+            "url": strings.Trim(strconv.Quote(u), `"`),
+        })
+    },
+    RiskDetected: true,
+}
+```
+
+### 攻击示例： #
+
+攻击者可以构造一个恶意链接，将重定向目标设置为一个恶意网站或钓鱼网站，诱使用户点击链接。例如，攻击者可以构造以下链接并发送给用户：
+
+```
+http://127.0.0.1:8787/ssrf/redirect/meta/case2?redirect=http://127.0.0.1:8787/ssrf/flag
+```
+
+### 防御措施： #
+
+- 避免用户控制： 尽量避免将用户提供的数据直接用于重定向目标。如果必须使用用户输入，应该进行严格的输入验证和过滤。
+- 使用相对路径： 尽量使用相对路径而不是绝对URL来执行重定向。
+- 避免客户端重定向： 尽量避免使用客户端重定向方式（如JS的 location 属性、meta标签的 http-equiv 属性等），而是在服务端进行重定向。
+
+- 示例代码：
+- 攻击示例：
+- 防御措施：

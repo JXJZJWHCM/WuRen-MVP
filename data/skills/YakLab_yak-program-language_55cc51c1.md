@@ -1,0 +1,17 @@
+# 客户端验证绕过 | Yak Program Language
+
+- 来源: https://yaklang.com/Yaklab/wiki/AnyUserLogin/Client-Authentication-Bypass/
+- 抓取时间: 2026-02-06T07:02:53Z
+
+---
+漏洞描述：
+
+开发人员使用服务器端返回的相关参数作为最终登录凭证，导致可绕过登录限制，如服务器返回一个flag参数作为登录是否成功的标准，但是由于代码最后登录是否成功是通过获取这个flag参数来作为最终的验证，导致攻击者者通过修改flag参数即可绕过登录的限制。
+
+漏洞案例：
+
+访问测试网站，页面为用友NC控制台，用友NC控制台存在一个可通过修改返回包来绕过验证，登录administrator用户的漏洞。随意输入密码，点击OK时开启抓包
+
+劫持响应，将返回包的0改为1
+
+即可绕过验证，成功登录administrator用户。

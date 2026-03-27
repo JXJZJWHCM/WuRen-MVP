@@ -1,0 +1,32 @@
+name: "enum4linux"
+command: "enum4linux"
+enabled: true
+short_description: "SMB枚举工具，用于Windows/Samba系统信息收集"
+description: |
+  Enum4linux是一个用于枚举SMB共享和Windows系统信息的工具。
+
+  **主要功能：**
+  - SMB共享枚举
+  - 用户和组枚举
+  - 密码策略信息
+  - 系统信息收集
+
+  **使用场景：**
+  - Windows系统渗透测试
+  - SMB安全评估
+  - 网络信息收集
+  - 域环境侦察
+parameters:
+  - name: "target"
+    type: "string"
+    description: "目标IP地址"
+    required: true
+    position: 0
+    format: "template"
+    template: "-u '' -p '' {value}" # 强制使用空用户名密码，避免交互式提示
+  - name: "additional_args"
+    type: "string"
+    description: "额外的Enum4linux参数（默认：-a）"
+    required: false
+    default: "-a"
+    format: "positional"

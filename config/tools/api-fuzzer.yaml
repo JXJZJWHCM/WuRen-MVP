@@ -1,0 +1,105 @@
+name: "api-fuzzer"
+command: "python3"
+args:
+  - "-c"
+  - |
+    import pathlib
+    import sys
+    import textwrap
+    from urllib.parse import urljoin
+
+    import requests
+
+    if len(sys.argv) < 2:
+        sys.stderr.write("缺少 base_url 参数\n")
+        sys.exit(1)
+
+    base_url = sys.argv[1]
+    endpoints_arg = sys.argv[2] if len(sys.argv) > 2 else ""
+    methods_arg = sys.argv[3] if len(sys.argv) > 3 else "GET,POST"
+    wordlist_path = sys.argv[4] if len(sys.argv) > 4 else ""
+    timeout = float(sys.argv[5]) if len(sys.argv) > 5 and sys.argv[5] else 10.0
+
+    methods = [m.strip().upper() for m in methods_arg.split(",") if m.strip()]
+    if not methods:
+        methods = ["GET"]
+
+    endpoints = []
+    if endpoints_arg:
+        endpoints = [ep.strip() for ep in endpoints_arg.split(",") if ep.strip()]
+    elif wordlist_path:
+        path = pathlib.Path(wordlist_path)
+        if not path.is_file():
+            sys.stderr.write(f"字典文件不存在: {path}\n")
+            sys.exit(1)
+        endpoints = [line.strip() for line in path.read_text().splitlines() if line.strip()]
+
+    if not endpoints:
+        sys.stderr.write("未提供端点列表或字典。\n")
+        sys.exit(1)
+
+    results = []
+    for endpoint in endpoints:
+        url = urljoin(base_url.rstrip("/") + "/", endpoint.lstrip("/"))
+        for method in methods:
+            try:
+                resp = requests.request(method, url, timeout=timeout, allow_redirects=False)
+                results.append({
+                    "method": method,
+                    "endpoint": endpoint,
+                    "status": resp.status_code,
+                    "length": len(resp.content),
+                    "redirect": resp.headers.get("Location", "")
+                })
+            except requests.RequestException as exc:
+                results.append({
+                    "method": method,
+                    "endpoint": endpoint,
+                    "error": str(exc)
+                })
+
+    for item in results:
+        if "error" in item:
+            print(f"[{item['method']}] {item['endpoint']} -> ERROR: {item['error']}")
+        else:
+            redirect = f" -> {item['redirect']}" if item.get("redirect") else ""
+            print(f"[{item['method']}] {item['endpoint']} -> {item['status']} ({item['length']} bytes){redirect}")
+enabled: true
+short_description: "API端点模糊测试工具，支持智能参数发现"
+description: |
+  基于requests的轻量级API端点探测脚本，可按照提供的端点列表或字典，对多个HTTP方法进行探测并记录状态码与响应长度。
+parameters:
+  - name: "base_url"
+    type: "string"
+    description: "API基础URL，例如 https://api.example.com/"
+    required: true
+    position: 0
+    format: "positional"
+  - name: "endpoints"
+    type: "string"
+    description: "逗号分隔的端点列表（如 /v1/users,/v1/auth/login）"
+    required: false
+    default: ""
+    position: 1
+    format: "positional"
+  - name: "methods"
+    type: "string"
+    description: "HTTP方法列表，逗号分隔（默认 GET,POST）"
+    required: false
+    default: "GET,POST"
+    position: 2
+    format: "positional"
+  - name: "wordlist"
+    type: "string"
+    description: "端点字典文件路径（当未提供endpoints时使用）"
+    required: false
+    default: "/usr/share/wordlists/api/api-endpoints.txt"
+    position: 3
+    format: "positional"
+  - name: "timeout"
+    type: "string"
+    description: "每个请求的超时时间（秒，默认10）"
+    required: false
+    default: "10"
+    position: 4
+    format: "positional"

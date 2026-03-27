@@ -1,0 +1,56 @@
+name: "exec"
+command: "sh"
+args: ["-c"]
+enabled: true
+# 简短描述（用于工具列表，减少token消耗）
+short_description: "系统命令执行工具，用于执行Shell命令和系统操作（谨慎使用）"
+# 工具详细描述
+description: |
+  系统命令执行工具，用于执行Shell命令和系统操作。
+
+  **主要功能：**
+  - 执行任意Shell命令
+  - 支持bash、sh等shell
+  - 可以指定工作目录
+  - 返回命令执行结果
+
+  **使用场景：**
+  - 系统管理和维护
+  - 自动化脚本执行
+  - 文件操作和处理
+  - 系统信息收集
+
+  **安全警告：**
+  - ⚠️ 此工具可以执行任意系统命令，存在安全风险
+  - ⚠️ 仅应在受控环境中使用
+  - ⚠️ 所有命令执行都会被记录
+  - ⚠️ 建议限制可执行的命令范围
+  - ⚠️ 不要执行不可信的命令
+# 参数定义
+parameters:
+  - name: "command"
+    type: "string"
+    description: |
+      要执行的系统命令。可以是任何有效的Shell命令。
+
+      **格式要求：**
+      - 完整的Shell命令
+      - 可以包含管道、重定向等Shell特性
+      - 支持环境变量
+
+      **示例值：**
+      - 简单命令: "ls -la"
+      - 带管道: "ps aux | grep nginx"
+      - 文件操作: "cat /etc/passwd"
+      - 网络命令: "curl http://example.com"
+      - 系统信息: "uname -a"
+      - 查找文件: "find /var/log -name '*.log'"
+
+      **注意事项：**
+      - 命令会在指定的shell中执行
+      - 确保命令语法正确
+      - 注意命令的安全影响
+      - 必需参数，不能为空
+    required: true
+    position: 0
+    format: "positional"

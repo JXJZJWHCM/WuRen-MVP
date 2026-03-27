@@ -1,0 +1,22 @@
+name: "cat"
+enabled: true
+command: "cat"
+short_description: "读取并输出文件内容"
+description: |
+  读取文件内容并输出到标准输出。用于查看文件内容。
+
+  **使用场景：**
+  - 查看文本文件内容
+  - 读取配置文件
+  - 查看日志文件
+
+  **注意事项：**
+  - 如果文件很大，结果可能会被保存到存储中
+  - 只能读取文本文件，二进制文件可能显示乱码
+parameters:
+  - name: "file"
+    type: "string"
+    description: "要读取的文件路径"
+    required: true
+    format: "positional"
+    position: 0

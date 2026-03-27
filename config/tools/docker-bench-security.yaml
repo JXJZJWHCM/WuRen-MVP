@@ -1,0 +1,51 @@
+name: "docker-bench-security"
+command: "docker-bench-security"
+enabled: true
+short_description: "Docker安全基准检查工具"
+description: |
+  Docker Bench for Security是一个Docker安全基准检查工具，用于检查Docker配置是否符合安全最佳实践。
+
+  **主要功能：**
+  - Docker安全基准检查
+  - 配置审计
+  - 安全最佳实践检查
+  - 详细报告
+
+  **使用场景：**
+  - Docker安全审计
+  - 配置检查
+  - 合规性验证
+  - 安全评估
+parameters:
+  - name: "checks"
+    type: "string"
+    description: "要运行的特定检查"
+    required: false
+    flag: "-c"
+    format: "flag"
+  - name: "exclude"
+    type: "string"
+    description: "要排除的检查"
+    required: false
+    flag: "-e"
+    format: "flag"
+  - name: "output_file"
+    type: "string"
+    description: "输出文件路径"
+    required: false
+    flag: "-l"
+    format: "flag"
+  - name: "additional_args"
+    type: "string"
+    description: |
+      额外的docker-bench-security参数。用于传递未在参数列表中定义的docker-bench-security选项。
+
+      **示例值：**
+      - 根据工具特性添加常用参数示例
+
+      **注意事项：**
+      - 多个参数用空格分隔
+      - 确保参数格式正确，避免命令注入
+      - 此参数会直接追加到命令末尾
+    required: false
+    format: "positional"

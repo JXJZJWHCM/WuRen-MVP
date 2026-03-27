@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-2: #60a5fa;
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 10px 15px -3px rgba(2,6,23,0.08), 0 4px 6px -2px rgba(2,6,23,0.04);
+      --code-bg: #0b1220;
+      --code-border: rgba(148,163,184,0.25);
+      --danger: #ef4444;
+      --warning: #f97316;
+      --info: #eab308;
+      --ok: #22c55e;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      padding: 28px 20px 60px;
+    }
+    .app { max-width: 1120px; margin: 0 auto; }
+
+    .top {
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(37,99,235,0.35), transparent 55%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(96,165,250,0.28), transparent 55%),
+                  linear-gradient(135deg, #0b1220 0%, #0f172a 55%, #111827 100%);
+      color: #fff;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 26px 26px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.9), rgba(96,165,250,0.9));
+      display: grid; place-items: center;
+      box-shadow: 0 10px 22px rgba(37,99,235,0.28);
+    }
+    .logo svg { width: 22px; height: 22px; color: #fff; }
+    .top-title { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: 0.2px; color: #fff; }
+    .top-sub { margin: 4px 0 0; font-size: 13px; color: rgba(226,232,240,0.88); }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 16px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(148,163,184,0.22);
+    }
+    .meta { display: flex; align-items: center; gap: 10px; color: rgba(226,232,240,0.9); font-size: 13px; min-width: 0; }
+    .meta svg { width: 16px; height: 16px; opacity: 0.8; flex-shrink: 0; }
+    .meta .val { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+      align-items: start;
+    }
+    .side { position: sticky; top: 16px; }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .panel-hd {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 800;
+      color: #0b1220;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .toc { padding: 10px 10px 12px; max-height: calc(100vh - 180px); overflow: auto; }
+    .toc a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 10px;
+      color: #1f2937;
+      text-decoration: none;
+      font-size: 13px;
+      border: 1px solid transparent;
+    }
+    .toc a:hover {
+      background: rgba(37,99,235,0.06);
+      border-color: rgba(37,99,235,0.18);
+      color: #1d4ed8;
+    }
+    .toc a.active {
+      background: rgba(37,99,235,0.10);
+      border-color: rgba(37,99,235,0.22);
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+    .toc .lvl-2 { padding-left: 18px; }
+    .toc .lvl-3 { padding-left: 30px; }
+    .toc .lvl-4 { padding-left: 42px; }
+
+    .content { padding: 22px 22px 10px; }
+    .markdown { color: #0f172a; }
+    .markdown h1, .markdown h2, .markdown h3, .markdown h4 {
+      color: #0b1220;
+      margin: 22px 0 12px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .markdown h1 { font-size: 22px; padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-top: 0; }
+    .markdown h2 { font-size: 18px; position: relative; padding-left: 12px; }
+    .markdown h2::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 4px; border-radius: 2px; background: linear-gradient(180deg, var(--primary), var(--primary-2)); }
+    .markdown h3 { font-size: 16px; }
+    .markdown h4 { font-size: 14px; }
+    .markdown p { margin: 0 0 12px; }
+    .markdown ul, .markdown ol { margin: 0 0 12px; padding-left: 22px; }
+    .markdown li { margin: 6px 0; }
+    .markdown a { color: #1d4ed8; text-decoration: none; border-bottom: 1px dashed rgba(29,78,216,0.45); }
+    .markdown a:hover { border-bottom-style: solid; }
+    .markdown table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 14px 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 13px;
+    }
+    .markdown th {
+      background: #f8fafc;
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+      font-weight: 800;
+    }
+    .markdown td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: #0f172a;
+    }
+    .markdown tr:last-child td { border-bottom: none; }
+    .markdown tr:nth-child(even) { background: #fcfcfd; }
+    .markdown code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      background: rgba(148,163,184,0.2);
+      border: 1px solid rgba(148,163,184,0.25);
+      border-radius: 8px;
+      padding: 2px 6px;
+    }
+    .markdown pre {
+      position: relative;
+      margin: 12px 0 16px;
+      padding: 14px 14px 12px;
+      border-radius: 14px;
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      overflow: auto;
+      box-shadow: 0 10px 18px rgba(2,6,23,0.12);
+    }
+    .markdown pre code {
+      display: block;
+      padding: 0;
+      color: #e5e7eb;
+      background: transparent;
+      border: none;
+      font-size: 12px;
+      line-height: 1.55;
+      white-space: pre;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: 1px solid rgba(148,163,184,0.25);
+      background: rgba(15,23,42,0.55);
+      color: rgba(226,232,240,0.92);
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .copy-btn:hover { background: rgba(37,99,235,0.25); border-color: rgba(37,99,235,0.35); }
+    .foot {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: #64748b;
+      background: #fbfdff;
+    }
+    .fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(255,255,255,0.92);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+    .fab svg { width: 20px; height: 20px; color: #1d4ed8; }
+    @media (max-width: 960px) {
+      .layout { grid-template-columns: 1fr; }
+      .side { position: relative; top: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <section class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="top-title">{{ meta.engine_name }} 安全测试报告</h1>
+          <div class="top-sub">{{ title }}</div>
+        </div>
+      </div>
+      <div class="meta-row">
+        <div class="meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7V3h8v4"/><path d="M5 7h14v14H5z"/></svg>
+          <span class="val">报告文件：{{ meta.filename }}</span>
+        </div>
+        <div class="meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+          <span class="val">生成时间：{{ meta.generated_at }}</span>
+        </div>
+        <div class="meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z"/></svg>
+          <span class="val">目标：{{ meta.target or "未指定" }}</span>
+        </div>
+        <div class="meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+          <span class="val">本报告仅用于合法授权测试</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <aside class="side">
+        <div class="panel">
+          <div class="panel-hd">
+            <span>目录</span>
+            <span style="font-size:12px;color:#94a3b8;font-weight:700;">自动生成</span>
+          </div>
+          <nav class="toc" id="toc"></nav>
+        </div>
+      </aside>
+
+      <main class="panel">
+        <div class="content">
+          <article id="report" class="markdown">{{ body_html | safe }}</article>
+{% if defense and (defense.ttps or defense.cves) %}
+          <section class="markdown" style="margin-top:18px;">
+            <h2>附录：防御参考</h2>
+            <p style="color: var(--muted); font-size: 13px; margin-top:-6px;">
+              以下内容由报告文本自动提取，仅用于辅助检索与对齐 ATT&CK/Sigma 等资料库。
+            </p>
+{% if defense.ttps %}
+            <h3>ATT&CK 技术点（TTP）</h3>
+            <ul>
+{% for t in defense.ttps %}
+              <li>
+                <code>{{ t }}</code>
+                <a href="/api/mitre/search?q={{ t }}" target="_blank" rel="noopener noreferrer">MITRE 检索</a>
+                <a href="/api/sigma/search?q={{ t }}" target="_blank" rel="noopener noreferrer">Sigma 检索</a>
+              </li>
+{% endfor %}
+            </ul>
+{% endif %}
+{% if defense.cves %}
+            <h3>CVE 线索</h3>
+            <ul>
+{% for c in defense.cves %}
+              <li><code>{{ c }}</code> <a href="/api/defense/search?q={{ c }}" target="_blank" rel="noopener noreferrer">本地情报检索</a></li>
+{% endfor %}
+            </ul>
+{% endif %}
+          </section>
+{% endif %}
+        </div>
+        <div class="foot">
+          由 {{ meta.engine_name }} 自动生成 | 本报告仅供安全测试参考，请遵守相关法律法规
+        </div>
+      </main>
+    </section>
+  </div>
+
+  <button class="fab" id="toTop" aria-label="返回顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script>
+    (function () {
+      var report = document.getElementById('report');
+      var toc = document.getElementById('toc');
+      var toTop = document.getElementById('toTop');
+
+      function slugify(text) {
+        return String(text || '')
+          .trim()
+          .toLowerCase()
+          .replace(/\s+/g, '-')
+          .replace(/[^\w\u4e00-\u9fa5-]+/g, '')
+          .replace(/-+/g, '-')
+          .replace(/^-|-$/g, '') || ('section-' + Math.random().toString(16).slice(2));
+      }
+
+      function buildTOC() {
+        if (!report || !toc) return;
+        var headings = report.querySelectorAll('h1, h2, h3, h4');
+        if (!headings || headings.length === 0) {
+          toc.innerHTML = '<div style="padding:10px 12px;color:#94a3b8;font-size:13px;">未检测到标题</div>';
+          return;
+        }
+
+        var used = {};
+        var items = [];
+        headings.forEach(function (h) {
+          var level = Number(h.tagName.replace('H', ''));
+          var title = (h.textContent || '').trim();
+          if (!title) return;
+          var id = h.getAttribute('id') || slugify(title);
+          if (used[id]) {
+            id = id + '-' + used[id];
+            used[id] = used[id] + 1;
+          } else {
+            used[id] = 1;
+          }
+          h.setAttribute('id', id);
+          items.push({ id: id, title: title, level: level });
+        });
+
+        toc.innerHTML = items
+          .map(function (it) {
+            var cls = it.level === 1 ? '' : ('lvl-' + it.level);
+            return '<a class="' + cls + '" href="#' + it.id + '">' + it.title + '</a>';
+          })
+          .join('');
+
+        var links = toc.querySelectorAll('a');
+        var linkById = {};
+        links.forEach(function (a) {
+          var href = a.getAttribute('href') || '';
+          var id = href.startsWith('#') ? href.slice(1) : href;
+          linkById[id] = a;
+        });
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            var id = entry.target.getAttribute('id');
+            var link = linkById[id];
+            if (!link) return;
+            if (entry.isIntersecting) {
+              Object.values(linkById).forEach(function (el) { el.classList.remove('active'); });
+              link.classList.add('active');
+            }
+          });
+        }, { rootMargin: '-20% 0px -70% 0px', threshold: 0.01 });
+
+        headings.forEach(function (h) { observer.observe(h); });
+      }
+
+      function enhanceCodeBlocks() {
+        if (!report) return;
+        var pres = report.querySelectorAll('pre');
+        pres.forEach(function (pre) {
+          if (pre.querySelector('.copy-btn')) return;
+          var btn = document.createElement('button');
+          btn.className = 'copy-btn';
+          btn.type = 'button';
+          btn.textContent = '复制';
+          btn.addEventListener('click', async function () {
+            try {
+              var code = pre.querySelector('code');
+              var text = code ? code.innerText : pre.innerText;
+              var copied = false;
+              try {
+                if (navigator.clipboard && window.isSecureContext) {
+                  await navigator.clipboard.writeText(text);
+                  copied = true;
+                }
+              } catch (e) {
+                copied = false;
+              }
+              if (!copied) {
+                var ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.top = '-9999px';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+              }
+              btn.textContent = '已复制';
+              setTimeout(function () { btn.textContent = '复制'; }, 1200);
+            } catch (e) {
+              btn.textContent = '失败';
+              setTimeout(function () { btn.textContent = '复制'; }, 1200);
+            }
+          });
+          pre.appendChild(btn);
+        });
+      }
+
+      function setupToTop() {
+        if (!toTop) return;
+        toTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      buildTOC();
+      enhanceCodeBlocks();
+      setupToTop();
+    })();
+  </script>
+</body>
+</html>

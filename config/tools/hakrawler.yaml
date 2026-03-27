@@ -1,0 +1,53 @@
+name: "hakrawler"
+command: "hakrawler"
+enabled: true
+short_description: "Web端点发现工具"
+description: |
+  Hakrawler是一个快速、简单的Web端点发现工具。
+
+  **主要功能：**
+  - Web端点发现
+  - 链接提取
+  - JavaScript文件发现
+  - 快速爬取
+
+  **使用场景：**
+  - Web端点发现
+  - 内容爬取
+  - 安全测试
+  - Bug bounty侦察
+parameters:
+  - name: "url"
+    type: "string"
+    description: "目标URL"
+    required: true
+    flag: "-url"
+    format: "flag"
+  - name: "depth"
+    type: "int"
+    description: "爬取深度"
+    required: false
+    flag: "-d"
+    format: "flag"
+    default: 2
+  - name: "forms"
+    type: "bool"
+    description: "包含表单"
+    required: false
+    flag: "-forms"
+    format: "flag"
+    default: true
+  - name: "additional_args"
+    type: "string"
+    description: |
+      额外的hakrawler参数。用于传递未在参数列表中定义的hakrawler选项。
+
+      **示例值：**
+      - 根据工具特性添加常用参数示例
+
+      **注意事项：**
+      - 多个参数用空格分隔
+      - 确保参数格式正确，避免命令注入
+      - 此参数会直接追加到命令末尾
+    required: false
+    format: "positional"

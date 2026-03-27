@@ -1,0 +1,19 @@
+name: msfconsole
+description: Metasploit 框架控制台。用于执行漏洞利用模块。
+binary: msfconsole
+args:
+  resource_script:
+    type: string
+    flag: "-r"
+    description: 资源脚本文件路径 (.rc)。这是自动化的关键。
+    required: true
+  quiet:
+    type: boolean
+    flag: "-q"
+    description: 安静模式，不显示 banner
+    default: true
+    required: false
+  additional_args:
+    type: string
+    description: 额外参数
+    required: false

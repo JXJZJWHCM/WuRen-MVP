@@ -1,0 +1,99 @@
+name: "dirb"
+command: "dirb"
+enabled: true
+# 简短描述（用于工具列表，减少token消耗）
+short_description: "Web目录和文件扫描工具，通过暴力破解方式发现Web服务器上的隐藏目录和文件"
+# 工具详细描述
+description: |
+  Web目录和文件扫描工具，通过暴力破解方式发现Web服务器上的隐藏目录和文件。
+
+  **主要功能：**
+  - 目录和文件发现
+  - 支持自定义字典文件
+  - 检测常见的Web目录结构
+  - 识别备份文件、配置文件等敏感文件
+  - 支持多种HTTP方法
+
+  **使用场景：**
+  - Web应用目录枚举
+  - 发现隐藏的管理界面
+  - 查找备份文件和敏感信息
+  - 渗透测试中的信息收集
+
+  **注意事项：**
+  - 扫描可能产生大量HTTP请求
+  - 某些请求可能被WAF拦截
+  - 建议使用合适的字典文件以提高效率
+  - 扫描结果需要人工验证
+# 参数定义
+parameters:
+  - name: "url"
+    type: "string"
+    description: |
+      目标URL，要扫描的Web服务器地址。
+
+      **格式要求：**
+      - 必须包含协议（http:// 或 https://）
+      - 可以包含基础路径
+      - 末尾不要带斜杠（除非要扫描特定目录）
+
+      **示例值：**
+      - 基础URL: "http://example.com"
+      - HTTPS: "https://example.com"
+      - 带端口: "http://example.com:8080"
+      - 特定目录: "http://example.com/admin"
+      - 带路径: "http://example.com/app"
+
+      **注意事项：**
+      - URL必须可访问
+      - 确保URL格式正确，包含协议前缀
+      - 必需参数，不能为空
+    required: true
+    position: 0
+    format: "positional"
+  - name: "wordlist"
+    type: "string"
+    description: |
+      字典文件路径，包含要尝试的目录和文件名列表。
+
+      **格式要求：**
+      - 文件路径，可以是绝对路径或相对路径
+      - 文件每行一个目录或文件名
+      - 支持常见的字典文件格式
+
+      **示例值：**
+      - 默认字典: "/usr/share/dirb/wordlists/common.txt"
+      - 自定义字典: "/path/to/custom-wordlist.txt"
+      - 常用字典: "/usr/share/wordlists/dirb/common.txt"
+
+      **常用字典文件：**
+      - common.txt: 常见目录和文件
+      - big.txt: 大型字典
+      - small.txt: 小型快速字典
+      - extensions_common.txt: 常见文件扩展名
+
+      **注意事项：**
+      - 如果不指定，将使用默认字典
+      - 确保字典文件存在且可读
+      - 大型字典会显著增加扫描时间
+    required: false
+    position: 1
+    format: "positional"
+  - name: "additional_args"
+    type: "string"
+    description: |
+      额外的Dirb参数。用于传递未在参数列表中定义的Dirb选项。
+
+      **示例值：**
+      - "-a": 用户代理字符串
+      - "-H": 自定义HTTP头
+      - "-c": Cookie字符串
+      - "-X": 文件扩展名
+      - "-z": 毫秒延迟
+
+      **注意事项：**
+      - 多个参数用空格分隔
+      - 确保参数格式正确，避免命令注入
+      - 此参数会直接追加到命令末尾
+    required: false
+    format: "positional"

@@ -1,0 +1,27 @@
+name: curl
+description: 用于传输数据的命令行工具，支持 URL 语法。用于快速检查。
+binary: curl
+parameters:
+  - name: url
+    type: string
+    description: 要获取的 URL
+    required: true
+    position: 0
+    format: positional
+  - name: head_only
+    type: boolean
+    flag: "-I"
+    description: 仅获取 HTTP 头
+    required: false
+    format: flag
+  - name: insecure
+    type: boolean
+    flag: "-k"
+    description: 允许不安全的服务器连接 (跳过 SSL 验证)
+    required: false
+    format: flag
+  - name: additional_args
+    type: string
+    description: 额外参数
+    required: false
+    format: positional
